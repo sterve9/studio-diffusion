@@ -141,3 +141,40 @@ question « le code va-t-il dans M4 ou dans une application séparée ? » sera
 d'autant plus confuse que les deux s'appellent pareil.
 
 **Statut** : à surveiller. `studio-diffusion` reste un titre de travail.
+
+## F-08 — SYSTÈME — La liste des projets est noyée sous les projets de test
+
+**Trouvée le 01/09/2026, en ouvrant `/dashboard/projects` pour créer le
+projet de la séance.**
+
+**21 projets `[E2E] Chaîne critique …`** occupent la liste, contre 4 projets
+réels ou semi-réels. Le premier vrai projet est invisible sans faire défiler
+tout l'écran.
+
+### Ce qui a été mesuré
+
+- `listProjects()` fait un `.select('*')` **sans aucun filtre**, trié par
+  `created_at DESC`. Les projets de test sortent donc en premier, étant les
+  plus récents.
+- **Aucune suppression de projet n'existe** dans M1 : `create-project`,
+  `update-project`, `archive-project`, et rien d'autre.
+- Le système **a déjà tranché ce débat ailleurs** :
+  `m5-mesures/domain/event-rules.ts` définit `E2E_PROJECT_PREFIX = '[E2E]'`
+  et `/dashboard/mesures` écarte les événements de test **à la lecture,
+  jamais de la base**. Le principe est décidé et implémenté — il n'a jamais
+  été appliqué à la liste des projets.
+
+### Confirmation d'un angle mort de la S24
+
+`[E2E] Chaîne critique 1788032168183` est bien au statut **Idée** au lieu
+d'`Archivé` — l'angle mort n°5 de la S24, constaté en direct à l'écran.
+
+### La cause racine, plus profonde que l'affichage
+
+**Le test E2E écrit dans la base de production.** Nettoyer la liste traite le
+symptôme : le prochain run recréera des projets. Supprimer ne règle donc
+rien durablement, et se heurterait au journal `events` append-only qui
+référence ces projets.
+
+**Statut** : chantier réel, mais dans `methode-architecte-ia` — **hors
+périmètre de ce dépôt**, qui ne modifie pas les dépôts de référence.
