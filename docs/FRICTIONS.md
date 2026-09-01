@@ -200,3 +200,64 @@ séance dont l'objet est ailleurs.
 M5 applique déjà aux événements — écarter `[E2E]` à la lecture, avec un
 `?tests=1` pour les revoir. Aucune suppression, aucune perte, et le prochain
 run E2E ne repollue pas l'affichage.
+
+### F-05, suite — ce n'est pas l'écran, c'est le schéma
+
+**Mesuré le 01/09/2026, après que le client a identifié la friction seul
+devant le formulaire.**
+
+La contradiction est démontrable avec les seuls documents du système.
+
+`05.Cycle_de_Vie.md` définit les états du Projet :
+
+| | État | Définition, mot pour mot |
+|---|---|---|
+| E1 | `Idée` | « Le projet est formulé mais pas encore engagé. Le besoin existe, **rien n'est formalisé**. » |
+| E2 | `Cadré` | « Le besoin client et le problème métier sont définis et documentés. » |
+
+Et la transition T1 `Idée` → `Cadré` : « Le besoin client **et le problème
+métier** sont formalisés et documentés ».
+
+`20260816153643_create_projects_table.sql` déclare :
+
+```sql
+business_problem  text NOT NULL,
+```
+
+Un projet naît à l'état `Idée`. **La base exige donc à E1 une information que
+le cycle de vie ne produit qu'à T1.**
+
+### La cause, mécanique
+
+`03.Objets_Metier.md` liste « Problème métier traité » comme attribut du
+Projet. C'est exact — l'erreur n'est pas là.
+
+Modéliser un objet demande deux questions ; une seule a été posée :
+
+1. ✅ Quels attributs cet objet porte-t-il ?
+2. ❌ **À partir de quel moment de son cycle de vie chaque attribut
+   devient-il connaissable ?**
+
+Un `NOT NULL` est une promesse : « cette information existe dès la naissance
+de l'objet ». Ici la promesse est fausse. Le formulaire ne fait que la
+transmettre à l'utilisateur.
+
+### Correction identifiée, non appliquée
+
+- À la création, demander le **besoin client brut** — présent dès `Idée`,
+  puisque « le besoin existe ».
+- Rendre `business_problem` **nullable**, et le remplir au passage à `Cadré`,
+  c'est-à-dire quand l'étape 2 de la méthode est écrite.
+
+Migration + révision de `03.Objets_Metier.md` : relève de RM-03. **Hors
+périmètre de ce dépôt**, et non tranché aujourd'hui.
+
+### Leçon transposable
+
+Un modèle d'objet qui ignore le **moment** où chaque attribut devient
+connaissable produit des contraintes de base qui forcent l'utilisateur à
+mentir. Ici, le système qui sert la méthode obligeait à sauter une étape de
+cette même méthode.
+
+C'est le genre de défaut qu'aucune relecture de schéma ne révèle, et qu'un
+seul usage réel fait apparaître en trente secondes.
