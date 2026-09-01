@@ -107,3 +107,37 @@ inutilisé** du compte.
 vidéo n°1. Et la pénibilité de cette manipulation manuelle **est elle-même
 la mesure recherchée pour l'étape 2** — combien de temps coûte réellement une
 diffusion complète, mesuré au lieu d'être estimé.
+
+### N-04, corrigée le 01/09/2026 — YouTube ne démarre pas au jour 5
+
+La décision « la version longue part sur YouTube dès la vidéo n°1 » était
+**mauvaise**. Elle ignorait une contrainte éditoriale que le client a
+rappelée :
+
+> « Comment je vais tourner un short sur la cinquième étape de ma méthode ?
+> Où est la première étape, vont se demander les nouveaux ? Donc pour YouTube
+> je dois commencer par la première étape. »
+
+**YouTube se regarde en série, TikTok à l'unité.** Une chaîne vide qui
+s'ouvre au jour 5 ne raconte rien : le visiteur cherche le début, ne le
+trouve pas, et part. C'est pire qu'une chaîne vide.
+
+S'y ajoute un travail de cadrage — générique, promesse de chaîne, ce que
+l'abonné y gagne — qui ne s'improvise pas en un après-midi.
+
+### Décision retenue
+
+- **Aujourd'hui** : jour 5 sur TikTok, au nouveau format. **Aucun renvoi
+  YouTube**, puisqu'il n'y a rien au bout. La série TikTok continue sans
+  interruption.
+- **YouTube** : chantier à part, à cadrer, et qui **démarrera au jour 1**.
+
+### Ce qui reste vrai de la correction précédente
+
+Le blocage YouTube n'est **pas technique** et **ne dépend pas de
+`studio-diffusion`**. Publier ne demande qu'un compte et un fichier. Ce qui
+manque est un **cadrage éditorial**, faisable dès que le client le décide.
+
+**À ne pas confondre plus tard** : « j'attends mon système » serait faux ;
+« je n'ai pas encore cadré ma chaîne » est vrai. Le système n'arrivera pas
+avant l'étape 11 — le cadrage, lui, ne dépend que de son auteur.
