@@ -178,3 +178,25 @@ référence ces projets.
 
 **Statut** : chantier réel, mais dans `methode-architecte-ia` — **hors
 périmètre de ce dépôt**, qui ne modifie pas les dépôts de référence.
+
+### Question ouverte, volontairement non tranchée le 01/09/2026
+
+**Pourquoi le test E2E écrit-il dans la base de production ?**
+
+Deux réponses possibles, toutes deux à instruire ailleurs :
+
+1. Une base de test séparée — coûteuse, mais elle règle le problème à la
+   source et rendrait aussi mesurable l'isolation RLS entre utilisateurs
+   (angle mort n°2 de la S24 : un seul compte existe, les policies ont été
+   relues et jamais éprouvées).
+2. Un nettoyage en fin de run — moins cher, mais il se heurte au journal
+   `events` append-only, qui référence les projets créés.
+
+Décidé le 01/09/2026 : **on trace, on ne tranche pas.** C'est une décision
+d'architecture de test, trop lourde pour être prise en passant pendant une
+séance dont l'objet est ailleurs.
+
+**Correctif retenu à court terme** : appliquer à `listProjects` le filtre que
+M5 applique déjà aux événements — écarter `[E2E]` à la lecture, avec un
+`?tests=1` pour les revoir. Aucune suppression, aucune perte, et le prochain
+run E2E ne repollue pas l'affichage.
