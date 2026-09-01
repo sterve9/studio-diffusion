@@ -79,3 +79,65 @@ direct. Deux conséquences adoptées pour `studio-diffusion` :
 
 **Statut** : renvois à corriger dans `crm-prospection-ingrid`, **hors
 séance**.
+
+## F-05 — SYSTÈME — Le formulaire de création exige l'étape 2 pour créer le projet
+
+**Trouvée le 01/09/2026, en lisant le code avant de cliquer.**
+
+`/dashboard/projects/new` demande deux champs, tous deux **obligatoires** :
+
+- `name` — le nom du projet
+- `business_problem` — « **Problème métier traité** »
+
+`create-project.ts` refuse la création si le second est vide :
+« Le problème métier traité est obligatoire. »
+
+Or **le problème métier est l'étape 2**. Le système impose donc d'écrire
+l'étape 2 pour avoir le droit de commencer l'étape 1 — alors que la RPC
+`create_project_with_steps` clone justement les 13 étapes dont la première
+s'appelle « Besoin Client » et se décrit : *« sans reformulation
+prématurée »*.
+
+**Le système contredit la méthode qu'il sert.**
+
+**Atténuation** : `/dashboard/projects/[id]/edit` existe, le champ est donc
+corrigible plus tard. Ce n'est pas irréversible comme F-01 et F-02.
+
+**Piste** : rendre `business_problem` optionnel à la création et le remplir
+au passage de l'étape 2, ou renommer le champ en quelque chose d'honnête à
+l'instant où on le demande.
+
+## F-06 — SYSTÈME — Un livrable ne peut être qu'une URL publique
+
+**Trouvée le 01/09/2026, en lisant `add-deliverable-form.tsx`.**
+
+Le formulaire d'ajout de livrable impose trois champs, dont deux requis :
+
+- `title` — texte, requis
+- `url` — `type="url"`, **requis**
+- `description` — optionnel
+
+Il n'existe **aucun moyen d'attacher un fichier**. Un livrable qui vit en
+local — un `.md` dans un dépôt non poussé — ne peut pas être rattaché.
+
+**Conséquence directe pour `studio-diffusion`** : `git remote -v` ne renvoie
+rien. Le dépôt est local uniquement. **Le livrable de l'étape 1 ne peut pas
+être attaché tant que le dépôt n'est pas poussé sur un hébergeur public.**
+
+**Ce n'est pas forcément un défaut** — une preuve doit être consultable, donc
+publique. Mais ça impose un prérequis que rien n'annonce : *avoir un dépôt
+distant public avant de pouvoir déclarer le moindre livrable.*
+
+## F-07 — MÉTHODE — Collision de vocabulaire sur le mot « Diffusion »
+
+**Trouvée le 01/09/2026.**
+
+« Diffusion » désigne déjà **M4**, un module existant du système
+(`/dashboard/diffusion`, `src/modules/m4-diffusion/`). Le nouveau projet
+s'appelle `studio-diffusion`.
+
+Deux choses différentes portent le même nom. Au moment de l'étape 8, la
+question « le code va-t-il dans M4 ou dans une application séparée ? » sera
+d'autant plus confuse que les deux s'appellent pareil.
+
+**Statut** : à surveiller. `studio-diffusion` reste un titre de travail.
