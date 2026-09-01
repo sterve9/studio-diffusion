@@ -28,8 +28,13 @@ TikTok réelles de l'auteur — pas d'une intuition.
 | Nouveaux abonnés | 5, soit **~1,18 %** |
 | Total du compte | 16 vidéos → 30 abonnés |
 
-Durée de la vidéo **déduite** (34,5 ÷ 0,21) : **~2 min 45**.
-⚠️ Déduction, pas lecture. **À confirmer avant de s'appuyer dessus.**
+Durée de la vidéo : **2 min 41** — ✅ **mesurée le 01/09/2026**, lue
+directement dans les analytiques.
+
+La déduction faite le 31/08 (34,5 ÷ 0,21 → ~2 min 45) annonçait 164 s ;
+la mesure donne 161 s. Écart : 3 secondes, moins de 2 %. Contrôle inverse :
+34,5 ÷ 161 = **21,4 %**, ce qui correspond aux 21 % affichés. **L'hypothèse
+est confirmée, elle n'est plus une hypothèse.**
 
 ### Ce que ces chiffres disent
 
@@ -39,8 +44,22 @@ Durée de la vidéo **déduite** (34,5 ÷ 0,21) : **~2 min 45**.
    soit. Il part sur la promesse, pas sur le contenu. TikTok lit cet abandon
    précoce comme un verdict et cesse de distribuer.
 2. **La durée, invisible.** À contenu strictement identique, 34,5 s regardées
-   font **21 %** sur une vidéo de 2 min 45, mais **77 %** sur une vidéo de 45 s.
+   font **21 %** sur une vidéo de 2 min 41, mais **77 %** sur une vidéo de 45 s.
    Le format transforme une attention correcte en mauvais bulletin.
+
+⚠️ **Contre-indice relevé le 01/09/2026, à ne pas enterrer.** Cette vidéo est
+**une des plus longues du compte**, et c'est **la plus vue**. La corrélation
+va donc dans le sens **inverse** de la thèse « raccourcir ».
+
+Ce qui reste vrai : la durée écrase mécaniquement le **pourcentage de
+rétention**, c'est de l'arithmétique. Ce qui n'est **pas** établi : que
+raccourcir augmente les **vues**. Aucune donnée du compte ne le démontre —
+il faudrait comparer durée et vues sur les 16 vidéos, ce qui n'a pas été
+fait.
+
+**Ne pas confondre les deux.** Le raccourcissement est une hypothèse
+plausible, pas une cause prouvée. C'est précisément ce que le test des
+5 vidéos à 45 s doit trancher.
 
 **Ce qui n'est PAS le problème : la conversion.** ~1 % d'abonnement pour qui
 regarde, c'est sain. Ceux qui voient suivent. Trop peu de gens voient.
