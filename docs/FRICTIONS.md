@@ -281,3 +281,57 @@ génère va exiger trois secondes plus tard.
 une méthode à revoir. Le diagnostic passe de « le système contredit la
 méthode » à « le système contredit la méthode **à sa porte d'entrée
 uniquement** ».
+
+## F-09 — SYSTÈME — « Créer une preuve » publie immédiatement, sans le dire
+
+**Trouvée le 01/09/2026, en mesurant le bouton avant de cliquer.**
+
+La chaîne réelle, depuis un livrable :
+
+| Action | Effet | Réversible ? |
+|---|---|---|
+| **Publier** (livrable) | `Brouillon` → `Publié`. Statut interne. Ne publie rien vers l'extérieur. Débloque le bouton suivant. | ✅ **Oui** — le bouton devient « Dépublier » |
+| **Créer une preuve** | Crée la preuve **et la publie** sur `/p/{slug}` | ❌ **Non** |
+
+`create-proof-button.tsx` enchaîne sans interruption :
+
+```ts
+const result = await createProof({...})
+const publishResult = await updateProofStatus(result.proofId, 'publié')
+```
+
+**Le statut `'publié'` est passé en dur, immédiatement après la création.**
+Il n'existe aucun état intermédiaire, aucune relecture, aucune confirmation.
+
+Le libellé du bouton dit « Créer une preuve ». Il devrait dire « Créer **et
+publier** ». Combiné à F-01 — une preuve publiée ne se corrige ni en titre ni
+en résumé, et `UpdateProofInput` n'est importé nulle part — c'est l'action la
+plus dangereuse du système, et la seule qui ne s'annonce pas.
+
+**Correction identifiée** : soit renommer le bouton pour qu'il dise ce qu'il
+fait, soit ne pas appeler `updateProofStatus` dans la foulée et laisser la
+preuve en brouillon, avec un second geste explicite pour publier.
+
+**Note** : `updateProofStatus` existe déjà et prend le statut en paramètre.
+Le brouillon de preuve est donc à portée de main — c'est l'enchaînement
+automatique qui le supprime, pas une limite du modèle.
+
+## F-10 — SYSTÈME — Une étape peut être terminée à vide
+
+**Trouvée le 01/09/2026, en lisant `update-step-status.ts`.**
+
+`updateStepStatus` valide uniquement la transition de statut
+(`assertCanStepTransition`). **Aucune vérification sur les livrables** : ni
+qu'il en existe un, ni qu'il soit publié.
+
+Une étape peut donc être marquée `Terminée`, émettre l'événement CT-10
+« Étape terminée » vers M5, et alimenter les statistiques de cadence — **sans
+qu'aucun livrable ne l'atteste**.
+
+Combiné à F-02 (l'état `Terminée` est terminal, aucun retour), une étape
+terminée à vide l'est pour toujours.
+
+**Question ouverte, non tranchée** : est-ce un défaut ou une liberté
+volontaire ? Certaines étapes de la méthode peuvent légitimement ne rien
+produire d'attachable. Mais alors la mesure de cadence compte des étapes qui
+ne prouvent rien, et le système mesure des clics plutôt que du travail.
