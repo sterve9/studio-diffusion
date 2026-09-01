@@ -72,20 +72,17 @@ l'identification de l'objet central).
 - **YouTube** — l'explication complète. C'est la preuve elle-même.
   Chaîne créée, **encore vide**. Plus gros actif inutilisé.
 - **TikTok** — seul canal actif aujourd'hui. 16 vidéos.
-- **LinkedIn** — publication irrégulière. C'est pourtant là que se trouvent
-  les missions et les recruteurs visés.
+- **LinkedIn** — publication irrégulière. C'est pourtant le canal où le
+  public professionnel visé se trouve déjà.
 
-**Ses objectifs déclarés :**
+⚠️ **Garde-fou affaibli** : **le client de ce projet, c'est l'auteur
+lui-même.** Il n'y a pas de tiers pour reprendre l'architecte quand celui-ci
+glisse vers sa solution. Seule la mesure remplace ce contre-pouvoir — voir
+`docs/methode/01.Besoin_Client.md`.
 
-- *Court terme* — vendre un produit digital sur sa boutique Chariow.
-- *Moyen terme* — accumuler des preuves de compétence → petites missions →
-  consolider la compétence → poste d'AI automation specialist.
-
-⚠️ **Tension assumée** : l'audience qui achète un produit digital et celle qui
-recrute un spécialiste ne sont pas la même. Et un produit ne se vend pas à
-30 abonnés — la crédibilité précède la vente. À garder en tête à l'étape 1 :
-**le client de ce projet, c'est l'auteur lui-même**, ce qui affaiblit le
-garde-fou habituel. Seule la mesure le remplace.
+Les objectifs commerciaux et la tension entre les audiences visées sont
+suivis hors dépôt. Ils n'entrent ici que s'ils deviennent une contrainte de
+conception, et alors ils sont écrits comme telles.
 
 ---
 
