@@ -141,3 +141,19 @@ manque est un **cadrage éditorial**, faisable dès que le client le décide.
 **À ne pas confondre plus tard** : « j'attends mon système » serait faux ;
 « je n'ai pas encore cadré ma chaîne » est vrai. Le système n'arrivera pas
 avant l'étape 11 — le cadrage, lui, ne dépend que de son auteur.
+
+### N-04, protocole arrêté le 01/09/2026 — option 2 retenue
+
+**Deux variables changent** sur la vidéo n°1 : la **durée** (2 min 41 → 45 s)
+et le **hook** (exemple concret d'abord, au lieu de « Jour N » + annonce de
+processus).
+
+**Raison du choix**, malgré la perte de finesse d'analyse : le décrochage
+mesuré est à **0:02**, c'est-à-dire **avant** que la durée n'entre en jeu.
+Quelqu'un qui part à 2 secondes ne saura jamais si la vidéo durait 45 s ou
+3 minutes. Corriger la durée sans corriger le hook reviendrait à réparer la
+fin d'un problème qui se joue au début.
+
+**Ce que le test pourra prouver** : que le nouveau format fait mieux.
+**Ce qu'il ne pourra pas prouver** : laquelle des deux causes a agi.
+Écrit avant le tournage, pour ne pas l'oublier au dépouillement.
