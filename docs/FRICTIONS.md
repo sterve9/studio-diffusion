@@ -351,3 +351,49 @@ Le libellé ressemble à une étiquette ou à un lien de consultation.
 
 Cela aggrave F-09 plutôt que de la nuancer : l'action la plus définitive du
 système porte le libellé le moins explicite de toute l'interface.
+
+## F-12 — SYSTÈME — L'angle mort n°6 de la S24 s'est manifesté en direct
+
+**Rencontrée le 01/09/2026 au soir, en tentant de vérifier F-08 en local.**
+
+Le prompt de reprise S24 listait, en angle mort n°6 :
+
+> « Le refresh de session **après expiration réelle du jeton** n'est toujours
+> pas couvert. `session.spec.ts` prouve la survie à un rechargement immédiat,
+> pas au renouvellement effectif. **Premier suspect en cas de déconnexion
+> inattendue.** »
+
+### Ce qui a été mesuré
+
+Serveur `next dev` lancé, démarrage nominal (`Ready in 1350ms`). Puis :
+
+| Moment | Route | Résultat |
+|---|---|---|
+| T+0 | `GET /` | **307** en 150 ms — normal |
+| T+0 | log serveur | `AuthApiError: Invalid Refresh Token: Refresh Token Not Found` |
+| T+2 min | `GET /login` | **aucune réponse**, timeout à 60 s, et **rien dans le log** |
+| T+3 min | `GET /p` (route publique) | **aucune réponse**, timeout à 25 s |
+| T+3 min | `GET /` | **aucune réponse**, timeout à 15 s |
+| T+3 min | processus | **4,91 s de CPU en 5 s** — un cœur à 100 %, en continu |
+
+Le serveur passe donc de « répond en 150 ms » à « ne répond plus du tout,
+route publique comprise », tout en brûlant un cœur entier.
+
+### Ce que ça dit
+
+Un jeton de rafraîchissement invalide ne provoque pas une déconnexion propre :
+il met le serveur dans un état où **plus rien n'est servi**, pas même les
+pages qui ne demandent aucune authentification.
+
+L'angle mort n°6 annonçait « premier suspect en cas de déconnexion
+inattendue ». Le symptôme réel est pire qu'une déconnexion : c'est un déni de
+service complet.
+
+⚠️ **Observé en `next dev` uniquement.** Non reproduit en production, où le
+comportement peut différer (Vercel isole chaque requête dans une lambda). **À
+ne pas transposer sans mesure.**
+
+### Ce que ça bloque
+
+La vérification à l'écran de `DT-S25-01` (le filtre des projets `[E2E]`) n'a
+pas pu être faite en local. Elle reste à faire.
