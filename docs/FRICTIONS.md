@@ -261,3 +261,23 @@ cette même méthode.
 
 C'est le genre de défaut qu'aucune relecture de schéma ne révèle, et qu'un
 seul usage réel fait apparaître en trente secondes.
+
+### F-05, précision — la friction est confinée à la porte d'entrée
+
+**Observée par le client le 01/09/2026, une fois le projet créé.**
+
+Passé le formulaire de création, le système est **fidèle à la méthode** :
+
+- Étape 1, « Besoin Client » — *« Formaliser le besoin brut exprimé par le
+  client tel qu'il a été énoncé, sans reformulation prématurée. »*
+- Étape 2, « Problème Métier » — *« Transformer le besoin brut en problème
+  métier mesurable et actionnable. »*
+
+L'ordre est juste, les intitulés sont justes, l'enchaînement est juste. Seul
+le formulaire de création demandait l'inverse de ce que le canevas qu'il
+génère va exiger trois secondes plus tard.
+
+**Conséquence sur l'ampleur du correctif** : c'est un champ à déplacer, pas
+une méthode à revoir. Le diagnostic passe de « le système contredit la
+méthode » à « le système contredit la méthode **à sa porte d'entrée
+uniquement** ».
