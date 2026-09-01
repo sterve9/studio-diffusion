@@ -335,3 +335,19 @@ terminée à vide l'est pour toujours.
 volontaire ? Certaines étapes de la méthode peuvent légitimement ne rien
 produire d'attachable. Mais alors la mesure de cadence compte des étapes qui
 ne prouvent rien, et le système mesure des clics plutôt que du travail.
+
+### F-09, correction — le libellé réel est encore moins parlant
+
+**Constaté à l'écran le 01/09/2026, une fois le livrable publié.**
+
+Le bouton ne s'intitule pas « Créer une preuve » comme le laissait penser le
+nom du composant `CreateProofButton`. À l'écran, il affiche :
+
+> 🌟 **Preuve publique**
+
+**Aucun verbe.** Un utilisateur ne peut pas deviner qu'un clic déclenche une
+action, encore moins une action irréversible qui met un contenu en ligne.
+Le libellé ressemble à une étiquette ou à un lien de consultation.
+
+Cela aggrave F-09 plutôt que de la nuancer : l'action la plus définitive du
+système porte le libellé le moins explicite de toute l'interface.
