@@ -28,6 +28,9 @@ Isoler les causes demanderait 10 vidéos au lieu de 5.
 l'auteur depuis 16 vidéos), les hashtags, le texte de couverture, la
 description. Toute modification de ces éléments ajouterait une variable.
 
+⚠️ **Une variable n'a jamais été verrouillée** : le rythme de publication.
+Relevé le 02/09/2026, voir `CARNET.md` note **N-05**.
+
 ## Ligne de base — la vidéo de référence
 
 Meilleure publication du compte, mesurée le 31/08/2026, durée confirmée par
@@ -64,6 +67,58 @@ vidéo, pas le nombre de vidéos.
 s'améliore, par simple effet de division. Ne jamais annoncer une victoire sur
 C2 seul.
 
+---
+
+## ⚠️ C1 déclaré AVEUGLE le 02/09/2026
+
+**Le tableau ci-dessus n'est pas modifié.** Un critère ne se réécrit pas
+après avoir vu les résultats — c'est cette règle qui rend le test honnête.
+C1 reste ce qu'il était. Ce qui suit constate son **inaptitude à mesurer
+quoi que ce soit**, et le prouve.
+
+### La mesure qui le démontre
+
+Le client a ouvert plusieurs anciennes vidéos du compte et relevé leur seule
+seconde de décrochage :
+
+| Vidéo | Durée | Hook | Décrochage |
+|---|---|---|---|
+| Référence (31/08) | 161 s | ancien | **0:02** |
+| Témoin (31/08) | 90,30 s | ancien | **0:02** |
+| N°1 du test (01/09) | 31 s | **nouveau** | **0:02** |
+| Autres vidéos du compte | variées | ancien | **0:02, parfois 0:01** |
+
+**Verdict** : l'indicateur affiche la même valeur quels que soient la durée
+et le hook. Il ne discrimine rien.
+
+### Ce qu'il faut en conclure, et ce qu'il ne faut pas
+
+- ✅ **C1 n'a pas échoué. C1 était incapable de réussir ou d'échouer.**
+- ❌ **Ne pas lire** « décrochage toujours à 0:02 → le hook ne sert à rien ».
+  Ce serait tirer une conclusion d'un instrument sourd.
+- ❌ **Ne pas remplacer C1** par un critère plus favorable maintenant que les
+  chiffres sont connus. Le test des 5 vidéos se dépouille avec les critères
+  du 01/09, C1 compris et déclaré aveugle.
+
+### Ce qu'il aurait fallu mesurer
+
+Pas **l'instant** de la chute — sa **profondeur**. Combien de spectateurs sur
+100 sont encore là à 0:03. C'est lisible sur la courbe seconde par seconde,
+et c'est une grandeur qui varie.
+
+**Statut** : relevé **pour information** à partir du 03/09/2026. Ce n'est
+**pas** un critère de réussite du test en cours. Il deviendra le C1 du test
+suivant, écrit avant tournage comme le veut la règle.
+
+### La leçon, transposable
+
+Un critère écrit avant le test est honnête, mais pas forcément pertinent.
+La parade n'est pas de le réécrire après — c'est de **vérifier qu'il varie**
+sur des données déjà disponibles, avant de fonder le test dessus. Ici, trois
+minutes dans TikTok Studio le 01/09 auraient suffi.
+
+---
+
 ## Les 5 vidéos
 
 ### N°1 — Jour 5 : le cycle de vie
@@ -79,7 +134,7 @@ C2 seul.
 | Musique | Standard habituel |
 | Renvoi YouTube | **Aucun** — chaîne encore vide (voir N-04 corrigée) |
 
-**À relever à partir du 03/09/2026 :**
+**Dépouillement officiel — à relever à partir du 03/09/2026 :**
 
 | Mesure | Valeur | Critère |
 |---|---|---|
@@ -87,29 +142,121 @@ C2 seul.
 | Temps de visionnage moyen | *à relever* | — |
 | Part moyenne regardée | *à relever* | C2 |
 | Vue en entier | *à relever* | C4 |
-| **Seconde du décrochage** | *à relever* | **C1** |
+| **Seconde du décrochage** | *à relever* | **C1 — aveugle** |
 | Nouveaux abonnés | *à relever* | — |
 | Commentaires | *à relever* | — |
+| Spectateurs restants à 0:03 | *à relever* | **pour information** |
+
+#### Relevé intermédiaire — 02/09/2026, J+1
+
+⚠️ **CE RELEVÉ NE VALIDE NI N'INVALIDE AUCUN CRITÈRE.** La vidéo a environ
+21 heures. C3 exige 48 heures, soit le 03/09 à 17h02. Ces chiffres sont
+consignés pour ne pas être perdus, pas pour être conclus.
+
+| Mesure | Valeur à J+1 |
+|---|---|
+| Vues | 156 |
+| Temps de visionnage moyen | 25,9 s |
+| Part moyenne regardée | 83 % |
+| Vue en entier | 17,08 % |
+| Seconde du décrochage | 0:02 |
+| Nouveaux abonnés | 0 |
+| Commentaires | 0 |
+
+**Contrôle de cohérence** : 25,9 ÷ 31 = 83,5 %, affiché 83 %. Les données se
+tiennent.
+
+**Trois observations, aucune conclusion :**
+
+1. **C2 est numériquement atteint (83 % > 60 %) et ne prouve rien seul.**
+   La part moyenne monte à chaque fois que la durée baisse — 21 % à 161 s,
+   37 % à 90 s, 83 % à 31 s — sans qu'aucun hook n'y soit pour quelque chose.
+   Le piège écrit le 01/09 s'est présenté exactement comme annoncé.
+
+2. **Le temps de visionnage baisse (35,2 s → 25,9 s) et ce n'est pas
+   interprétable.** Sur une vidéo de 31 s, le plafond est 31 s. Le plafond a
+   chuté ; on ne sait pas si l'attention a chuté. Il faudrait le taux de
+   replay pour trancher.
+
+3. **83 % de part moyenne mais 17 % au bout** : le public s'arrête
+   massivement dans le dernier quart. Outro Remotion, premier suspect.
+   ⚠️ **Ne rien changer avant la fin du test** — ce serait une variable de
+   plus. Voir `CARNET.md` note **N-06**.
 
 ### N°2 à N°5
 
-*À venir. Même format, mêmes variables. Aucun autre changement tant que le
-test n'est pas dépouillé.*
+**Protocole confirmé le 02/09/2026** : aucune variable ne bouge. ~31 s, même
+style de hook, même musique, mêmes hashtags, même texte de couverture, même
+description. Seul le sujet change, ce qui est inévitable.
+
+Une thèse concurrente a été formulée par le client le 02/09 — l'« utilité
+perçue » comme moteur de rétention. Elle est **écartée de ce test** et
+deviendra le protocole du **test 2 (vidéos 6 à 10)**, avec ses propres
+critères écrits avant tournage. Voir `CARNET.md` note **N-07**.
 
 ---
 
 ## Vidéo témoin — publiée la veille du test
 
-Publiée le **31/08/2026**, ancien format. **201 vues** au 01/09, 0 abonné.
+Publiée le **31/08/2026**, ancien format. **Ne pas supprimer cette vidéo** :
+elle porte la seule mesure de l'ancien format à distribution récente.
 
-⚠️ Ses analytiques détaillées **n'étaient pas encore disponibles** le
-01/09/2026. À relever quand elles apparaîtront : c'est la mesure « avant » la
-plus proche dans le temps, donc la plus comparable.
+**Relevée le 02/09/2026**, durée lue directement à l'écran.
 
-**Ne pas supprimer cette vidéo.** Elle porte la seule mesure de l'ancien
-format à distribution récente.
+| Mesure | Valeur |
+|---|---|
+| Durée | **90,30 s** |
+| Vues | 238 |
+| Temps de visionnage moyen | 35,2 s |
+| Part moyenne regardée | 37 % |
+| Vue en entier | 12,58 % |
+| **Seconde du décrochage** | **0:02** |
+| Nouveaux abonnés | 1 (~0,42 %) |
+| Commentaires | 0 |
 
-⚠️ Le mot « flop » a été employé à son sujet le 01/09 sur la seule base de
-son absence des analytiques — ce qui ne prouve rien, une vidéo d'un jour
-n'ayant pas eu le temps d'y entrer. À juger sur ses chiffres, pas sur son
-absence d'un classement.
+### La déduction a encore raté
+
+Avant lecture, 35,2 ÷ 0,37 donnait **95,14 s**. Le réel est **90,30 s** :
+**4,84 s d'écart, soit 5,4 %**.
+
+La déduction précédente (vidéo de référence, 01/09) ratait de 1,9 %. Celle-ci
+rate de 5,4 %. **La règle « on lit, on ne déduit pas » s'est payée deux
+fois.** Elle n'est pas une précaution de style.
+
+### Un écart non expliqué, consigné sans être résolu
+
+35,2 ÷ 90,30 = **39 %**. TikTok affiche **37 %**. Les arrondis n'y suffisent
+pas : il faudrait un temps de visionnage de 33,9 s pour tomber à 37,49 %.
+
+La même formule tombe juste sur les deux autres vidéos — 34,5 ÷ 161 = 21,4 %
+pour 21 % affichés, 25,9 ÷ 31 = 83,5 % pour 83 % affichés.
+
+Hypothèse non vérifiée : « part moyenne regardée » pourrait être une moyenne
+calculée par vue, et non le rapport de deux moyennes. **Non tranché.** Sans
+conséquence sur le test, noté pour ne pas être redécouvert.
+
+### Ce que la témoin apporte au dossier
+
+Trois vidéos mesurées, trois durées, trois volumes de vues :
+
+| Durée | Vues | Part moyenne | Vue en entier |
+|---|---|---|---|
+| 161 s | **425** | 21 % | 8,32 % |
+| 90,30 s | **238** | 37 % | 12,58 % |
+| 31 s | **156** *(J+1, incomplet)* | 83 % | 17,08 % |
+
+⚠️ **Le contre-indice de `CLAUDE.md` se renforce** : plus la vidéo est
+courte, moins elle fait de vues. La corrélation va toujours dans le sens
+**inverse** de la thèse « raccourcir augmente la portée ».
+
+⚠️ **Et il ne prouve rien non plus.** La n°1 est incomplète, trois points ne
+font pas une loi, et le contenu diffère à chaque fois. **Rien n'est tranché
+avant le 03/09.**
+
+Ce qui reste établi, et seulement cela : la durée écrase mécaniquement le
+pourcentage de rétention. C'est de l'arithmétique, pas un résultat.
+
+⚠️ Le mot « flop » a été employé au sujet de cette vidéo le 01/09 sur la
+seule base de son absence des analytiques. Ses chiffres sont maintenant là :
+238 vues, 37 % de part moyenne, 12,58 % vue en entier — soit une meilleure
+rétention que la « meilleure vidéo du compte ». Le jugement était prématuré.
