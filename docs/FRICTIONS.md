@@ -397,3 +397,18 @@ ne pas transposer sans mesure.**
 
 La vérification à l'écran de `DT-S25-01` (le filtre des projets `[E2E]`) n'a
 pas pu être faite en local. Elle reste à faire.
+
+### F-06, suite — la friction est contournée, pas résolue
+
+**Constaté le 02/09/2026.**
+
+Le dépôt a désormais un distant public — `github.com/sterve9/studio-diffusion`
+— et le livrable de l'étape 1 a pu être attaché sous forme d'URL.
+
+**Le blocage est levé en pratique. La friction reste entière** : rien dans
+le système n'annonce qu'il faut un dépôt distant public avant de pouvoir
+déclarer le moindre livrable. Le formulaire demande une URL sans dire d'où
+elle doit venir.
+
+**Statut** : de « bloquante » à **contournée**. À conserver au relevé — c'est
+un prérequis silencieux, pas un défaut disparu.
