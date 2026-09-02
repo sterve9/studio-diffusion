@@ -157,3 +157,102 @@ fin d'un problème qui se joue au début.
 **Ce que le test pourra prouver** : que le nouveau format fait mieux.
 **Ce qu'il ne pourra pas prouver** : laquelle des deux causes a agi.
 Écrit avant le tournage, pour ne pas l'oublier au dépouillement.
+
+## N-05 → étape 2 — Le rythme de publication est une variable non verrouillée
+
+**Relevé le 02/09/2026**, en organisant la suite du test.
+
+Le protocole de `TEST_5_VIDEOS.md` verrouille cinq éléments : durée, hook,
+musique, hashtags, texte de couverture et description. **Il ne dit rien de la
+cadence de publication.**
+
+Si les 16 vidéos précédentes sortaient à un rythme donné et que les 5 du test
+sortent à un autre, une troisième variable bouge en silence — et TikTok tient
+compte de la régularité d'un compte.
+
+⚠️ **Non mesuré à ce jour.** Il faudrait relever les dates de publication des
+16 vidéos précédentes, puis tenir celles des 5 du test.
+
+**Ce qui est décidé** : rien. On note maintenant pour ne pas l'inventer au
+dépouillement. Si l'écart de cadence s'avère important, il devra figurer dans
+les réserves de l'étape 2 au lieu d'être découvert après.
+
+## N-06 → dépouillement du test — Deux observations du relevé J+1
+
+**Relevées le 02/09/2026**, à partir des chiffres de la vidéo témoin et du
+relevé intermédiaire de la n°1.
+
+### (a) La seconde du décrochage est un indicateur invariant
+
+Vérifié par le client sur plusieurs anciennes vidéos du compte : **0:02
+partout, parfois 0:01**, tous formats et tous hooks confondus.
+
+C'est ce qui fonde la déclaration « C1 aveugle » dans `TEST_5_VIDEOS.md`.
+
+**Ce qu'il faut retenir pour la suite de la méthode** : un critère écrit
+avant le test est honnête, mais pas forcément pertinent. La parade n'est pas
+de le réécrire après coup — c'est de **vérifier qu'il varie** sur des données
+déjà disponibles avant de fonder un test dessus.
+
+**Ce qui devra le remplacer, au test suivant** : la **profondeur** de la
+chute, pas son instant. Combien de spectateurs sur 100 sont encore là à 0:03.
+
+### (b) Le dernier quart de la vidéo n°1 perd le public
+
+83 % de part moyenne regardée, mais **17,08 % seulement vont au bout**. La
+sortie est donc massive dans le dernier quart.
+
+**Premier suspect** : l'outro Remotion.
+
+⚠️ **Aucune modification autorisée avant la fin du test.** Toucher l'outro
+sur les n°2 à 5 ajouterait une variable et rendrait les 5 vidéos
+incomparables entre elles.
+
+**À faire** : vérifier si le même décrochage terminal apparaît sur les n°2 à
+5. S'il se répète sur 4 vidéos, ce n'est plus un accident.
+
+## N-07 → futur test 2 (vidéos 6 à 10) — La thèse de l'utilité perçue
+
+**Formulée par le client le 02/09/2026**, en découvrant que le décrochage à
+0:02 ne bouge pas :
+
+> « pour moi c'est évident puisque les gens restent sur ta vidéo s'ils se
+> rendent compte qu'ils apprennent quelque chose qui peut les aider dans leur
+> quotidien, leur faciliter la tâche pour moins réfléchir. Si ma prochaine
+> vidéo a ces critères l'attention va monter. »
+
+### Pourquoi elle n'a pas été appliquée immédiatement
+
+**Deux raisons, dans cet ordre.**
+
+1. **Elle n'explique pas le chiffre qu'elle prétend expliquer.** À 2
+   secondes, personne n'a eu le temps de se rendre compte qu'il apprend
+   quelque chose d'utile. Le mécanisme décrit opère à 5 ou 10 secondes. Ce
+   qui se joue à 0:02 est antérieur à tout contenu : l'image d'ouverture et
+   la première voix.
+
+2. **Ce serait une troisième variable** au milieu d'un test qui en porte déjà
+   deux. Le test des 5 vidéos ne prouverait alors plus rien du tout — ni sur
+   la durée, ni sur le hook, ni sur l'utilité.
+
+⚠️ **Le mot « évident » est le signal.** `CLAUDE.md` acte qu'il n'existe pas
+de client tiers pour reprendre l'architecte sur ce projet : c'est
+l'assistant qui tient ce rôle. Une conviction n'est pas une mesure, aussi
+raisonnable soit-elle.
+
+### Ce qu'elle a de juste, et qui reste ouvert
+
+L'invariance du décrochage à 0:02 suggère que le tri se fait **avant le hook
+parlé** — sur la première image, peut-être sur la couverture. Ça déplace la
+question du texte du hook vers l'ouverture visuelle. Piste réelle, non
+mesurée.
+
+### Décision prise le 02/09/2026
+
+La thèse devient le protocole du **test 2, vidéos 6 à 10**, à lancer après le
+dépouillement complet du test en cours. Elle y aura :
+
+- une variable isolée, à définir ;
+- des critères écrits **avant** tournage ;
+- et cette fois, une **vérification préalable que chaque critère varie** sur
+  les données déjà disponibles — la leçon de N-06 (a).
