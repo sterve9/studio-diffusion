@@ -2,11 +2,49 @@
 
 À lire en premier au démarrage de la prochaine session.
 
-⚠️ **Ce point de reprise clôture la séance du 02/09, écrit le 03/09.** La
-clôture avait été oubliée la veille. C'est écrit ici plutôt que daté du 02
-pour la même raison qui interdit de cocher 13 étapes d'un coup : le journal
-doit dire quand le travail a eu lieu, pas quand il aurait été plus élégant
-qu'il ait lieu.
+⚠️ **Ce point de reprise clôture la séance du 02/09, écrit le 03/09 à 01h17**
+(horloge lue, pas déduite). La clôture avait été oubliée la veille. C'est écrit
+ici plutôt que daté du 02 pour la même raison qui interdit de cocher 13 étapes
+d'un coup : le journal doit dire quand le travail a eu lieu, pas quand il
+aurait été plus élégant qu'il ait lieu.
+
+---
+
+## 📅 Programme du jeudi 03/09/2026
+
+**Reprise à 07h00.** Le dépouillement de la n°1 n'est pas encore possible : la
+vidéo atteint ses 48 heures à **17h02**, dix heures après la reprise. La
+matinée va donc à la production.
+
+| Quand | Quoi | Pourquoi maintenant |
+|---|---|---|
+| **07h00** | **Script de la vidéo n°3 — jour 7, les contrats de données** | Rien ne l'attend, et le CTA de la n°2 l'a déjà annoncée au public |
+| puis | B-roll Remotion du jour 7 | Un composant neuf sera sans doute nécessaire, comme `BlocsSysteme` pour le jour 6 |
+| puis | Tournage, montage, publication | ⚠️ **Noter l'heure exacte de publication** — mesure N-05 |
+| **17h02** | **Dépouillement 48 h de la vidéo n°1** | C'est ce qui débloque l'étape 2 |
+| après | Écriture de `02.Probleme_Metier.md` | Possible dès que la n°1 est dépouillée |
+| *04/09 à 16h27* | *Dépouillement de la n°2* | *hors de cette journée* |
+
+### Matière du jour 7, déjà repérée
+
+`crm-prospection-ingrid/docs/methode/07.Contrats.md` — **11 contrats de
+données** : 6 internes au workflow 1, 1 inter-workflow, 4 internes au
+workflow 2. Chacun nomme un **émetteur**, un **récepteur**, la **structure
+exacte des champs** et les **règles attachées**.
+
+**Deux pistes de hook, à valider — ni l'une ni l'autre n'est retenue :**
+
+1. « Quand tu envoies un colis, tu remplis une étiquette. Nom, adresse, poids.
+   Sans ça, il part nulle part. » — colle exactement à la définition : un
+   émetteur, un récepteur, des champs obligatoires.
+2. « Deux personnes qui parlent la même langue, mais pas le même vocabulaire. »
+   — porte sur le malentendu plutôt que sur la structure.
+
+⚠️ **Rien ne change dans le protocole** : ~31 s, même style de hook, même
+musique, mêmes hashtags, même couverture, même description, même structure de
+CTA — qui annoncera le jour 8.
+
+---
 
 ---
 
