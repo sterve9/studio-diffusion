@@ -1,6 +1,12 @@
-# Point de reprise — mis à jour le 02/09/2026
+# Point de reprise — mis à jour le 03/09/2026
 
 À lire en premier au démarrage de la prochaine session.
+
+⚠️ **Ce point de reprise clôture la séance du 02/09, écrit le 03/09.** La
+clôture avait été oubliée la veille. C'est écrit ici plutôt que daté du 02
+pour la même raison qui interdit de cocher 13 étapes d'un coup : le journal
+doit dire quand le travail a eu lieu, pas quand il aurait été plus élégant
+qu'il ait lieu.
 
 ---
 
@@ -24,8 +30,14 @@ Les 14 autres dossiers de `02_Développement` ne concernent pas ce travail.
 
 ## 3. La première chose à faire
 
-**Dépouiller la vidéo n°1 du test.** Publiée le 01/09 à 17h02, elle atteint
-48 heures le **03/09 à 17h02**. C'est ce qui débloque l'étape 2.
+**Deux dépouillements, à deux heures précises.**
+
+| Vidéo | Publiée | 48 h atteintes | État |
+|---|---|---|---|
+| **N°1** — jour 5, cycle de vie | 01/09 à 17h02 | **03/09 à 17h02** | ⏰ **c'est l'échéance la plus proche** |
+| **N°2** — jour 6, les composants | 02/09 à 16h27 | **04/09 à 16h27** | à suivre |
+
+Le dépouillement de la n°1 est ce qui débloque l'étape 2.
 
 TikTok Studio → Contenu → la vidéo → la courbe seconde par seconde.
 
@@ -35,9 +47,13 @@ vues · temps de visionnage moyen · part moyenne regardée · vue en entier ·
 seconde du décrochage · nouveaux abonnés · commentaires ·
 **spectateurs restants à 0:03**
 
-⚠️ **Ne pas dépouiller avant 17h02.** C3 est libellé « vues à 48 h ». Le
+⚠️ **Ne pas dépouiller avant l'heure.** C3 est libellé « vues à 48 h ». Le
 relevé J+1 du 02/09 est déjà consigné, dans une section séparée qui ne valide
 aucun critère.
+
+⚠️ **Sur la n°2, regarder aussi le dernier quart.** La n°1 affichait 83 % de
+part moyenne pour 17,08 % de vues en entier. Si le décrochage terminal se
+répète, l'outro Remotion cesse d'être un soupçon (N-06 b).
 
 ### Ce qui a changé le 02/09 : C1 est aveugle
 
@@ -77,7 +93,7 @@ tombe le 03/09 à 17h02.**
 | Durée réelle de la vidéo de référence | ✅ **2 min 41**, lue directement |
 | Ce que M4 sait diffuser | ✅ **`'linkedin' \| 'x'`, texte uniquement.** Ni TikTok ni YouTube. |
 | Vidéo témoin du 31/08 | ✅ **relevée le 02/09** — 90,30 s, 238 vues, 37 % |
-| **Dépouillement 48 h de la vidéo n°1** | ❓ **C'est ce qui manque.** Disponible le 03/09 à 17h02. |
+| **Dépouillement 48 h de la vidéo n°1** | ❓ **C'est ce qui manque.** Disponible le **03/09 à 17h02**. |
 
 Tant que ce chiffre n'est pas là, `02.Probleme_Metier.md` ne peut pas être
 écrit sans inventer.
@@ -88,9 +104,20 @@ déclaré résolu.
 
 ## 5. Chantiers ouverts, sans urgence
 
-**Vidéos n°2 à n°5** — protocole confirmé le 02/09 : **aucune variable ne
-bouge**. ~31 s, même style de hook, même musique, mêmes hashtags, même texte
-de couverture, même description. Seul le sujet change.
+**Vidéo n°2 — publiée le 02/09 à 16h27, 30,50 s.** Jour 6, les composants.
+Protocole tenu : 0,5 s d'écart avec la n°1, aucune variable modifiée. Son
+B-roll a demandé un composant Remotion neuf, `BlocsSysteme`.
+
+**Vidéos n°3 à n°5** — **aucune variable ne bouge**. ~31 s, même style de
+hook, même musique, mêmes hashtags, même texte de couverture, même
+description, **même structure de CTA de fin**. Seul le sujet change, et le CTA
+annonce ce sujet — c'est le fonctionnement normal de la série, pas une
+variation.
+
+⚠️ **Le CTA doit désormais figurer sur chaque fiche.** Il manquait à celle de
+la n°1, ce qui a produit une erreur de raisonnement en direct le 03/09 : voir
+`CARNET.md` note **N-08**. Un élément verrouillé qui n'est pas écrit n'est pas
+verrouillé, il est oublié.
 
 **Test 2, vidéos 6 à 10** — la thèse de l'« utilité perçue » formulée par le
 client le 02/09 (voir `CARNET.md` N-07). À lancer **après** le dépouillement
@@ -150,3 +177,24 @@ publié dans le système.
 **Étape 2 — Problème Métier : en attente du dépouillement du 03/09 à 17h02.**
 
 Les onze étapes suivantes n'ont pas été ouvertes.
+
+## 8. Bilan de la séance du 02/09
+
+**Produit :** la vidéo témoin du 31/08 relevée (90,30 s, 238 vues) · le relevé
+J+1 de la n°1 consigné sans conclusion · **C1 déclaré aveugle**, preuve à
+l'appui · la vidéo n°2 écrite, animée et publiée · le composant Remotion
+`BlocsSysteme` créé et vérifié image par image.
+
+**Trois enseignements, tous obtenus en mesurant :**
+
+1. **Un critère écrit avant le test peut être sourd.** C1 valait 0:02 sur
+   toutes les vidéos du compte, tous formats et tous hooks. Il ne se réécrit
+   pas après coup — mais il fallait vérifier qu'il variait avant de fonder le
+   test dessus.
+2. **Une déduction rate plus qu'on ne croit.** 1,9 % d'erreur le 01/09, puis
+   **5,4 %** le 02/09. L'écart empire, il ne s'amortit pas.
+3. **`tsc --noEmit` a dit « c'est bon » quatre fois de suite** pendant que le
+   composant Remotion sortait du cadre, dessinait des pastilles parasites et
+   laissait un bloc allumé jusqu'à la fin. Aucun de ces défauts n'était un
+   défaut de type. Il a fallu rendre l'image. C'est la leçon de la S24 —
+   *un écran qui dit « c'est bon » n'est pas une mesure* — appliquée au motion.
