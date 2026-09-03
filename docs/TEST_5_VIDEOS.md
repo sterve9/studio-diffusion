@@ -132,7 +132,13 @@ minutes dans TikTok Studio le 01/09 auraient suffi.
 | Angle | Les chemins interdits |
 | B-roll | Remotion — cartouche, CycleDeVie (12 s), phrase forte, outro |
 | Musique | Standard habituel |
+| **CTA de fin** | **« Prochaine étape : les composants — abonne-toi »** |
 | Renvoi YouTube | **Aucun** — chaîne encore vide (voir N-04 corrigée) |
+
+⚠️ **La ligne CTA a été ajoutée le 03/09/2026**, elle manquait à la fiche
+d'origine. Cette omission a produit une erreur de raisonnement réelle — voir
+`CARNET.md` note **N-08**. Le CTA fait partie des éléments constants du
+protocole au même titre que la musique et les hashtags.
 
 **Dépouillement officiel — à relever à partir du 03/09/2026 :**
 
@@ -183,11 +189,55 @@ tiennent.
    ⚠️ **Ne rien changer avant la fin du test** — ce serait une variable de
    plus. Voir `CARNET.md` note **N-06**.
 
-### N°2 à N°5
+### N°2 — Jour 6 : les composants
+
+| | |
+|---|---|
+| **Publiée le** | **02/09/2026 à 16h27** |
+| **Durée** | **30,50 s** — lue à l'écran |
+| Sujet | Décomposition en blocs — 2 chaînes, 3 blocs chacune |
+| Hook | « Dans une cuisine, personne ne fait tout. » |
+| Angle | Un bloc a une entrée et une sortie, sinon ce n'est pas un bloc |
+| B-roll | Remotion — cartouche, **BlocsSysteme** (12 s), phrase forte, outro |
+| Musique | Standard habituel |
+| **CTA de fin** | **« Prochaine étape : les contrats de données — abonne-toi »** |
+| Renvoi YouTube | **Aucun** — chaîne toujours vide |
+
+**Protocole tenu.** Durée 30,50 s contre 31 s pour la n°1, soit 0,5 s d'écart.
+Même style de hook, même musique, mêmes hashtags, même texte de couverture,
+même description, même structure de CTA. Seul le sujet change, ce qui est
+inévitable — et l'annonce du CTA suit ce sujet, ce qui est le fonctionnement
+normal de la série.
+
+⚠️ **Une variation à ne pas oublier au dépouillement** : le CTA de la n°2 est
+**plus long et plus appuyé** que celui de la n°1. Ce n'est pas une variable du
+protocole — les deux annoncent l'étape suivante et invitent à s'abonner — mais
+si le taux d'abonnement monte, cette différence d'emphase devra être citée
+avant d'attribuer le gain au format.
+
+**Dépouillement officiel — à relever à partir du 04/09/2026 à 16h27 :**
+
+| Mesure | Valeur | Critère |
+|---|---|---|
+| Vues | *à relever* | C3 |
+| Temps de visionnage moyen | *à relever* | — |
+| Part moyenne regardée | *à relever* | C2 |
+| Vue en entier | *à relever* | C4 |
+| **Seconde du décrochage** | *à relever* | **C1 — aveugle** |
+| Nouveaux abonnés | *à relever* | — |
+| Commentaires | *à relever* | — |
+| Spectateurs restants à 0:03 | *à relever* | **pour information** |
+
+⚠️ **Regarder aussi le dernier quart.** La n°1 affichait 83 % de part moyenne
+pour 17,08 % de vues en entier. Si le même décrochage terminal se répète ici,
+l'outro Remotion cesse d'être un soupçon — voir `CARNET.md` note **N-06 (b)**.
+
+### N°3 à N°5
 
 **Protocole confirmé le 02/09/2026** : aucune variable ne bouge. ~31 s, même
 style de hook, même musique, mêmes hashtags, même texte de couverture, même
-description. Seul le sujet change, ce qui est inévitable.
+description, même structure de CTA. Seul le sujet change, ce qui est
+inévitable.
 
 Une thèse concurrente a été formulée par le client le 02/09 — l'« utilité
 perçue » comme moteur de rétention. Elle est **écartée de ce test** et
