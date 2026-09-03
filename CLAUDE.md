@@ -7,7 +7,12 @@ pas une décision de conception. Ce qui sera construit n'est pas décidé, et ne
 doit pas l'être avant d'avoir traversé les étapes de la méthode.
 
 **Il n'y a pas de code dans ce dépôt, et il ne doit pas y en avoir avant
-l'étape 11.** Le travail commence par `docs/methode/01.Besoin_Client.md`.
+l'étape 11.**
+
+**Où en est la méthode** — étape 1 (Besoin Client) **terminée** le 01/09/2026,
+livrable attaché et publié. Étape 2 (Problème Métier) **en attente de mesure**.
+Les onze suivantes ne sont pas ouvertes. Le point de reprise à jour est
+`docs/REPRISE.md` — **à lire en premier**, avant ce fichier-ci.
 
 ---
 
@@ -36,30 +41,45 @@ la mesure donne 161 s. Écart : 3 secondes, moins de 2 %. Contrôle inverse :
 34,5 ÷ 161 = **21,4 %**, ce qui correspond aux 21 % affichés. **L'hypothèse
 est confirmée, elle n'est plus une hypothèse.**
 
-### Ce que ces chiffres disent
+### Ce que ces chiffres disent — révisé le 02/09/2026
 
-**Deux causes, une seule visible :**
+**Deux causes étaient soupçonnées. La première a été démentie par la mesure.**
 
-1. **Le hook.** Le public part à 2 secondes — avant d'avoir appris quoi que ce
-   soit. Il part sur la promesse, pas sur le contenu. TikTok lit cet abandon
-   précoce comme un verdict et cesse de distribuer.
-2. **La durée, invisible.** À contenu strictement identique, 34,5 s regardées
-   font **21 %** sur une vidéo de 2 min 41, mais **77 %** sur une vidéo de 45 s.
-   Le format transforme une attention correcte en mauvais bulletin.
+1. ⚠️ **Le décrochage à 0:02 n'est pas un diagnostic. C'est une constante du
+   compte.** Vérifié le 02/09 sur plusieurs vidéos : **0:02 partout, parfois
+   0:01**, tous formats et tous hooks confondus — y compris sur la vidéo du
+   test au hook entièrement réécrit. Un indicateur qui ne varie jamais ne
+   mesure rien.
+   **Cela n'innocente pas le hook.** Cela dit que *cette mesure-là* ne peut
+   rien en dire. Ce qu'il aurait fallu relever est la **profondeur** de la
+   chute — combien de spectateurs sur 100 restent à 0:03 — et non son instant.
+   Voir `docs/TEST_5_VIDEOS.md`, section « C1 déclaré aveugle ».
+2. **La durée, invisible — toujours vraie, et purement arithmétique.** À
+   attention identique, 34,5 s regardées font **21 %** sur 2 min 41 et
+   dépasseraient **100 %** sur 31 s. Le format transforme une attention
+   correcte en mauvais bulletin. Mais c'est une division, pas un résultat.
 
-⚠️ **Contre-indice relevé le 01/09/2026, à ne pas enterrer.** Cette vidéo est
-**une des plus longues du compte**, et c'est **la plus vue**. La corrélation
-va donc dans le sens **inverse** de la thèse « raccourcir ».
+### Les trois vidéos mesurées à ce jour
 
-Ce qui reste vrai : la durée écrase mécaniquement le **pourcentage de
-rétention**, c'est de l'arithmétique. Ce qui n'est **pas** établi : que
-raccourcir augmente les **vues**. Aucune donnée du compte ne le démontre —
-il faudrait comparer durée et vues sur les 16 vidéos, ce qui n'a pas été
-fait.
+| Durée | Vues | Part moyenne | Vue en entier | Décrochage |
+|---|---|---|---|---|
+| 161 s — référence, 31/08 | **425** | 21 % | 8,32 % | 0:02 |
+| 90,30 s — témoin, 31/08 | **238** | 37 % | 12,58 % | 0:02 |
+| 31 s — n°1 du test, 01/09 | **156** *(J+1, incomplet)* | 83 % | 17,08 % | 0:02 |
+
+⚠️ **Contre-indice, relevé le 01/09 et renforcé le 02/09 : plus la vidéo est
+courte, moins elle fait de vues.** La corrélation va dans le sens **inverse**
+de la thèse « raccourcir ». Trois points ne font pas une loi, la n°1 est
+incomplète, et le contenu diffère à chaque fois — **rien n'est tranché.**
+
+Ce qui reste établi, et seulement cela : la durée écrase mécaniquement le
+**pourcentage de rétention**. Ce qui n'est **pas** établi : que raccourcir
+augmente les **vues**. Il faudrait comparer durée et vues sur l'ensemble des
+vidéos du compte, ce qui n'a toujours pas été fait.
 
 **Ne pas confondre les deux.** Le raccourcissement est une hypothèse
-plausible, pas une cause prouvée. C'est précisément ce que le test des
-5 vidéos à 45 s doit trancher.
+plausible, pas une cause prouvée. C'est ce que le test des 5 vidéos — publiées
+à **~31 s**, pas 45 — doit trancher.
 
 **Ce qui n'est PAS le problème : la conversion.** ~1 % d'abonnement pour qui
 regarde, c'est sain. Ceux qui voient suivent. Trop peu de gens voient.
@@ -83,14 +103,19 @@ teintée de solution. **L'étape 1 reste à écrire.**
 ## Contexte utile
 
 **Ce que publie l'auteur** : une série vidéo racontant la construction de
-`crm-prospection-ingrid` selon la méthode, étape par étape (au 31/08/2026 :
-l'identification de l'objet central).
+`crm-prospection-ingrid` selon la méthode, étape par étape. **Au 02/09/2026 :
+jour 6, les composants.** Le jour 7, les contrats de données, est annoncé par
+le CTA de la dernière vidéo.
 
 **Ses trois canaux :**
 
 - **YouTube** — l'explication complète. C'est la preuve elle-même.
   Chaîne créée, **encore vide**. Plus gros actif inutilisé.
-- **TikTok** — seul canal actif aujourd'hui. 16 vidéos.
+  ⚠️ Elle devra démarrer au **jour 1**, pas au jour en cours : une chaîne se
+  regarde en série. Décision du 01/09, voir `docs/CARNET.md` note **N-04**.
+- **TikTok** — seul canal actif. **16 vidéos au 31/08/2026, plus la vidéo
+  témoin du 31/08 et les deux vidéos du test.** ⚠️ Le total exact n'a pas été
+  relu à l'écran depuis — à vérifier avant de le citer.
 - **LinkedIn** — publication irrégulière. C'est pourtant le canal où le
   public professionnel visé se trouve déjà.
 
@@ -117,12 +142,15 @@ C'est le **premier projet neuf** à y être déroulé en direct, dans l'ordre de
 frictions** rencontrées en utilisant ce système pour de vrai. Tout noter au fil
 de l'eau, sans trier sur le moment.
 
-Deux frictions déjà connues :
+**Le relevé vit dans `docs/FRICTIONS.md`** — douze frictions au 02/09/2026,
+F-01 à F-12. Ne pas les dupliquer ici. Les deux qui commandent la conduite au
+quotidien :
 
-1. **Une preuve publiée ne se corrige pas** — ni titre, ni résumé. Relire avant
-   de publier.
-2. **Une étape « Terminée » est définitive.** Aucun retour. Ne pas terminer une
-   étape « pour voir ».
+1. **F-01 — une preuve publiée ne se corrige pas**, ni titre, ni résumé.
+   Relire avant de publier. Aggravée par **F-09** : le bouton « 🌟 Preuve
+   publique » crée **et publie** en un seul geste, sans le dire.
+2. **F-02 — une étape « Terminée » est définitive.** Aucun retour. Ne pas
+   terminer une étape « pour voir ».
 
 Et une discipline : **terminer les étapes au fur et à mesure, jamais en
 rafale.** Le journal du système enregistre le moment du clic — cocher 13 étapes
@@ -176,10 +204,22 @@ TikTok : profil → menu **☰** → **Outils de créateur** → **TikTok Studio
 onglet **Contenu**. La courbe de rétention y est donnée **seconde par seconde**.
 (Pas dans « Paramètres et confidentialité ».)
 
-**Correction en cours, hors séance** : les 5 prochaines vidéos sont publiées en
-**45 secondes, hook réécrit, version longue sur YouTube**. Si la rétention passe
-de 21 % à ~60 %, la cause est **prouvée** au lieu d'être supposée — et l'étape 2
-s'appuiera sur des données fraîches. Vérifier où en est ce test.
+**Le test des 5 vidéos est en cours** — journal complet dans
+`docs/TEST_5_VIDEOS.md`, protocole et critères écrits **avant** le premier
+tournage. Deux vidéos publiées au 02/09 : n°1 le 01/09 à 17h02 (31 s), n°2 le
+02/09 à 16h27 (30,50 s). **Aucun renvoi YouTube** — la chaîne est vide.
+
+⚠️ **Ne jamais écrire qu'une rétention à 60 % prouverait quoi que ce soit.**
+Sur une vidéo trois fois plus courte, la part moyenne regardée monte par simple
+division. La n°1 a affiché **83 %** — et ça ne prouve rien. Le seul critère qui
+mesure le vrai objectif, la **portée**, est le nombre de vues.
+
+⚠️ **Ne jamais déduire une durée d'un pourcentage.** Deux tentatives, deux
+échecs : 1,9 % d'erreur le 01/09, **5,4 % le 02/09**. On lit à l'écran.
+
+⚠️ **Ne jamais écrire une date ou une échéance sans avoir lu l'horloge.**
+Ajouté le 03/09/2026 après une erreur réelle : « demain matin » avait été
+compris comme le lendemain alors qu'il était une heure du matin.
 
 ---
 
