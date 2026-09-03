@@ -256,3 +256,54 @@ dépouillement complet du test en cours. Elle y aura :
 - des critères écrits **avant** tournage ;
 - et cette fois, une **vérification préalable que chaque critère varie** sur
   les données déjà disponibles — la leçon de N-06 (a).
+
+### N-05, première mesure — 02/09/2026
+
+Le premier intervalle du test est relevé.
+
+| | Publication | Intervalle |
+|---|---|---|
+| N°1 | 01/09/2026 à 17h02 | — |
+| N°2 | 02/09/2026 à 16h27 | **23 h 25** |
+
+⚠️ **Ce chiffre ne se compare encore à rien.** La cadence des 16 vidéos
+précédentes n'a toujours pas été relevée. Sans elle, on ne sait pas si
+publier à un jour d'intervalle est nouveau ou habituel pour ce compte — et
+donc si une troisième variable bouge en silence.
+
+**À faire avant le dépouillement final** : relever les dates de publication
+des 16 vidéos antérieures. C'est du recopiage, pas de l'analyse.
+
+## N-08 → toutes les étapes — Ce qui n'est pas écrit devient invisible
+
+**Constaté en direct le 03/09/2026**, en clôturant la séance du 02/09.
+
+La fiche de la vidéo n°1 dans `TEST_5_VIDEOS.md` listait sujet, hook, angle,
+B-roll, musique et renvoi YouTube. **Elle ne mentionnait pas le CTA de fin.**
+
+Conséquence immédiate : en apprenant que la n°2 portait un CTA
+« abonne-toi », l'assistant a conclu qu'une troisième variable venait de
+bouger, a chiffré ce que cela coûtait au test, et a posé une question de
+protocole — le tout sur une prémisse fausse. La n°1 avait exactement le même
+CTA. Le client a corrigé.
+
+### Ce que ça enseigne
+
+Le document ne disait rien de faux. Il était **incomplet**, ce qui n'est pas
+la même chose — mais produit le même résultat : un lecteur ultérieur déduit
+du faux de ce qui manque.
+
+⚠️ **Le danger est asymétrique.** Une erreur écrite se repère à la
+relecture. Une omission, non : rien ne signale son absence. C'est
+précisément le défaut relevé en **F-04** sur `crm-prospection-ingrid`, dont
+les renvois n'avaient jamais été rejoués contre les fichiers finaux.
+
+### Règle adoptée pour la suite
+
+Une fiche de vidéo liste **tous les éléments constants du protocole**, y
+compris ceux qui ne changent pas — musique, hashtags, texte de couverture,
+description, **CTA de fin**. Un élément verrouillé qui n'est pas écrit n'est
+pas verrouillé : il est seulement oublié.
+
+**Transposable aux 13 étapes** : ce qui est décidé de ne pas faire mérite
+d'être écrit autant que ce qui est fait.
