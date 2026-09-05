@@ -140,18 +140,69 @@ d'origine. Cette omission a produit une erreur de raisonnement réelle — voir
 `CARNET.md` note **N-08**. Le CTA fait partie des éléments constants du
 protocole au même titre que la musique et les hashtags.
 
-**Dépouillement officiel — à relever à partir du 03/09/2026 :**
+**Dépouillement officiel — relevé le 03/09/2026 à 17h05, à 48 h.**
 
-| Mesure | Valeur | Critère |
+| Mesure | Valeur | Critère | Verdict |
+|---|---|---|---|
+| **Vues** | **182** | **C3 — seuil > 425** | ❌ **échec** |
+| Temps de visionnage moyen | 26,7 s | — | |
+| Part moyenne regardée | 85 % | C2 — seuil > 60 % | ⚠️ atteint, sans valeur |
+| Vue en entier | 18,88 % | C4 — seuil > 25 % | ❌ échec |
+| Seconde du décrochage | 0:02 | C1 | — aveugle |
+| Nouveaux abonnés | **0** | — | |
+| Commentaires | 0 | — | |
+| **Spectateurs restants à 0:03** | **64 %** | **pour information** | base du futur C1 |
+
+**C3 échoue de loin** : 182 vues pour 425 demandées, soit 43 % de la cible.
+C'est le seul critère qui mesure la portée, donc l'objectif.
+
+### La courbe de rétention
+
+| | | |
 |---|---|---|
-| Vues | *à relever* | C3 |
-| Temps de visionnage moyen | *à relever* | — |
-| Part moyenne regardée | *à relever* | C2 |
-| Vue en entier | *à relever* | C4 |
-| **Seconde du décrochage** | *à relever* | **C1 — aveugle** |
-| Nouveaux abonnés | *à relever* | — |
-| Commentaires | *à relever* | — |
-| Spectateurs restants à 0:03 | *à relever* | **pour information** |
+| 0:01 | 88 % | −12 |
+| 0:02 | 73 % | **−15, la plus forte chute** |
+| 0:03 | 64 % | −9 |
+| 0:04 | 55 % | −9 |
+| 0:05 | 50 % | −5 |
+| 0:06 | 45 % | −5 |
+| 0:18 | 23 % | −22 sur 12 s (~1,8 pt/s) |
+| 0:31 | 18 % | −5 sur 13 s (~0,4 pt/s) |
+
+**Tout se joue avant 0:06 : 55 % du public est parti.** Ensuite la pente
+s'adoucit puis s'aplatit.
+
+### ⚠️ Deux mesures incompatibles — non résolu
+
+TikTok annonce **26,7 s** de visionnage moyen sur 31 s (cohérent avec les
+85 % affichés : 26,7 ÷ 31 = 86,1 %). La courbe dit que **55 % sont partis
+avant 0:06**.
+
+Arithmétique : si 55 % partent avant 6 s, ils apportent au plus 3,3 s de
+moyenne pondérée. Pour atteindre 26,7 s de moyenne, les 45 % restants
+devraient regarder **52 s chacun**, sur une vidéo de 31 s. Impossible **sauf
+si les replays sont comptés**.
+
+**Hypothèse, non vérifiée** : le « pourcentage regardé » intègre les boucles.
+Si c'est le cas, plus une vidéo est courte, plus elle boucle, plus ce chiffre
+gonfle — et le piège de C2 est double : la division par une durée plus courte,
+**et** les replays par-dessus. À vérifier si TikTok Studio expose un taux de
+replay.
+
+### Le contre-indice n'est plus partiel
+
+| Durée | Vues | Abonnés | Taux |
+|---|---|---|---|
+| 161 s | **425** | 5 | 1,18 % |
+| 90,30 s | **238** | 1 | 0,42 % |
+| **31 s** | **182** | **0** | **0 %** |
+
+Trois mesures achevées. **Vues et abonnés baissent tous deux à mesure qu'on
+raccourcit.** Aucun chiffre relevé à ce jour ne soutient « raccourcir augmente
+la portée ».
+
+⚠️ Trois points, trois contenus différents, trois jours différents. Ce n'est
+pas une loi, et les n°2 et n°3 ne sont pas dépouillées.
 
 #### Relevé intermédiaire — 02/09/2026, J+1
 
@@ -215,34 +266,197 @@ protocole — les deux annoncent l'étape suivante et invitent à s'abonner — 
 si le taux d'abonnement monte, cette différence d'emphase devra être citée
 avant d'attribuer le gain au format.
 
-**Dépouillement officiel — à relever à partir du 04/09/2026 à 16h27 :**
+**Dépouillement officiel — relevé le 04/09/2026, à 48 h.**
+
+| Mesure | Valeur | Critère | Verdict |
+|---|---|---|---|
+| **Vues** | **445** | **C3 — seuil > 425** | ✅ **ATTEINT** |
+| Temps de visionnage moyen | *non relevé* | — | |
+| Part moyenne regardée | 58 % | C2 — seuil > 60 % | ❌ échec |
+| Vue en entier | 11,42 % | C4 — seuil > 25 % | ❌ échec |
+| Seconde du décrochage | 0:02 | C1 | — aveugle |
+| Nouveaux abonnés | **3** (0,67 %) | — | |
+| Commentaires | *non relevé* | — | |
+| **Spectateurs restants à 0:03** | **50 %** | **pour information** | |
+
+**C3 est atteint pour la première fois du test.** 445 vues contre 425 demandées.
+
+### La courbe, et les sources de trafic
+
+| | n°1 | n°2 |
+|---|---|---|
+| 0:02 | 73 % | **62 %** |
+| 0:03 | 64 % | **50 %** |
+| 0:06 | 45 % | **32 %** |
+
+**Sources de trafic** (relevées pour la première fois) : Pour toi **87,4 %** ·
+profil perso **11,1 %** · autre 1,3 % · **abonnement 0,2 %**.
+
+⚠️ **Les abonnés ne regardent pas.** 0,2 % du trafic, soit environ une vue sur
+445. La portée vient entièrement de la distribution algorithmique. Chercher
+des abonnés ne fait donc pas grandir la portée mécaniquement.
+
+### ⚠️ Les deux vidéos du test se contredisent sur chaque mesure
+
+| | n°1 | n°2 |
+|---|---|---|
+| Durée | 31 s | 30,50 s |
+| **Vues** | **182** | **445** — ×2,4 |
+| Part moyenne | 85 % | 58 % — −27 pts |
+| Vue en entier | 18,88 % | 11,42 % |
+| Abonnés | 0 | 3 |
+| Rétention à 0:03 | 64 % | 50 % |
+
+Même protocole, même format, même style de hook, **0,5 seconde d'écart de
+durée**. Résultats sans rapport.
+
+**Deux conséquences, toutes deux mesurées.**
+
+**1. Le contre-indice « plus court = moins de vues » est mort.**
+161 s → 425 · 90,30 s → 238 · 31 s → 182 · **30,50 s → 445**. La relation
+monotone est cassée. La durée n'explique pas les vues, dans aucun sens.
+
+**2. « Bonne rétention → plus de portée » est démenti.** La n°2 perd son
+public bien plus vite — 50 % à 0:03 contre 64 %, 32 % à 0:06 contre 45 % — et
+fait **2,4 fois plus de vues**.
+
+⚠️ **Deux lectures possibles, non tranchées.** Soit la rétention n'entraîne
+pas la portée. Soit l'inverse : 87,4 % du trafic vient du « Pour toi », donc
+un public large et froid décroche plus vite — la faible rétention serait une
+**conséquence** de la diffusion large. Les deux expliquent les chiffres.
+
+**3. Et surtout : la variabilité dépasse l'effet.** Voir `CARNET.md` note
+**N-10**.
+
+⚠️ **Regarder aussi le dernier quart.** La n°1 affichait 83 % de part moyenne
+pour 17,08 % de vues en entier. Si le même décrochage terminal se répète ici,
+l'outro Remotion cesse d'être un soupçon — voir `CARNET.md` note **N-06 (b)**.
+
+### N°3 — Jour 7 : les contrats de données
+
+| | |
+|---|---|
+| **Publiée le** | **03/09/2026 à 16h15** |
+| **Durée** | **27 s** — ⚠️ voir la réserve ci-dessous |
+| Sujet | Le contrat de données — émetteur, récepteur, champs et types |
+| Hook | « Quand tu envoies un colis, tu remplis une étiquette. » |
+| Angle | Un contrat nomme qui envoie, qui reçoit, quels champs — rien d'autre ne passe |
+| B-roll | Remotion — cartouche, **ContratDonnees** (12 s), phrase forte, outro |
+| Phrase forte | « Sans étiquette, c'est un malentendu. » |
+| Musique | Standard habituel |
+| **CTA de fin** | **« Prochaine étape : l'architecture — abonne-toi »** — forme de la n°2 |
+| Renvoi YouTube | **Aucun** — chaîne toujours vide |
+| Face caméra | *à confirmer* — devait reprendre le traitement des n°1 et n°2 |
+
+⚠️ **Deux lignes de cette fiche ne sont pas vérifiées** et sont marquées comme
+telles : le **texte exact du CTA** (celui de la n°2 n'avait jamais été
+consigné, seulement décrit) et le **traitement de la face caméra**. Elles sont
+écrites ici en attente de relecture à l'écran, pas comme des constats. C'est
+l'application directe de **N-08** : une case vide vaut mieux qu'une case
+inventée, mais une case absente ne vaut rien.
+
+#### ⚠️ Réserve de durée — à citer au dépouillement
+
+| Vidéo | Durée | Écart vs n°1 |
+|---|---|---|
+| n°1 | 31 s | — |
+| n°2 | 30,50 s | −1,6 % |
+| **n°3** | **27 s** | **−12,9 %** |
+
+L'écart n°1 → n°2 valait 0,5 s. Celui-ci est **huit fois plus grand**, et la
+durée est **l'une des deux variables testées**. Le protocole disait « ~31 s ».
+
+**Conséquence arithmétique, pas d'opinion.** La part moyenne regardée est un
+quotient. À attention absolue identique, passer de 31 s à 27 s multiplie le
+pourcentage par 31/27, soit **+14,8 %**.
+
+Chiffré sur les données réelles : la n°1 a montré **25,9 s** d'attention pour
+83 % de part moyenne. Si la n°3 obtient exactement la même attention, elle
+affichera **25,9 ÷ 27 = 95,9 %**. Un bond de 83 % à 96 % qui ne dirait
+**rien du tout**.
+
+- **C2 est désormais à peu près sans valeur sur cette vidéo.** Il était déjà
+  partiellement mécanique ; ici il l'est presque entièrement.
+- **C3 — les vues à 48 h — n'est pas affecté.** Un nombre de vues ne se divise
+  par aucune durée. Il reste le seul critère qui mesure la portée.
+
+Ce n'est pas un test raté. C'est un écart écrit **avant** de voir les
+résultats, pour ne pas être découvert après.
+
+**Dépouillement officiel — à relever à partir du 05/09/2026 à 16h15 :**
 
 | Mesure | Valeur | Critère |
 |---|---|---|
 | Vues | *à relever* | C3 |
 | Temps de visionnage moyen | *à relever* | — |
-| Part moyenne regardée | *à relever* | C2 |
+| Part moyenne regardée | *à relever* | C2 — faussé par la durée |
 | Vue en entier | *à relever* | C4 |
 | **Seconde du décrochage** | *à relever* | **C1 — aveugle** |
 | Nouveaux abonnés | *à relever* | — |
 | Commentaires | *à relever* | — |
 | Spectateurs restants à 0:03 | *à relever* | **pour information** |
 
-⚠️ **Regarder aussi le dernier quart.** La n°1 affichait 83 % de part moyenne
-pour 17,08 % de vues en entier. Si le même décrochage terminal se répète ici,
-l'outro Remotion cesse d'être un soupçon — voir `CARNET.md` note **N-06 (b)**.
+⚠️ **Regarder aussi le dernier quart**, comme sur la n°2 : si le décrochage
+terminal se répète une troisième fois, l'outro Remotion n'est plus un
+soupçon — voir `CARNET.md` note **N-06 (b)**.
 
-### N°3 à N°5
+### N°4 et N°5
 
 **Protocole confirmé le 02/09/2026** : aucune variable ne bouge. ~31 s, même
 style de hook, même musique, mêmes hashtags, même texte de couverture, même
 description, même structure de CTA. Seul le sujet change, ce qui est
 inévitable.
 
+⚠️ **Retour à ~31 s.** La n°3 est sortie à 27 s, soit 12,9 % sous la n°1 —
+voir sa fiche et `CARNET.md` note **N-09**. Les n°4 et n°5 reviennent à la
+durée du protocole. **Vérifier la durée à l'écran avant publication**, pas
+seulement au montage : c'est le contrôle qui a manqué sur la n°3.
+
 Une thèse concurrente a été formulée par le client le 02/09 — l'« utilité
 perçue » comme moteur de rétention. Elle est **écartée de ce test** et
 deviendra le protocole du **test 2 (vidéos 6 à 10)**, avec ses propres
 critères écrits avant tournage. Voir `CARNET.md` note **N-07**.
+
+---
+
+### ⚠️ La publication du 05/09 est HORS TEST
+
+**Publiée le 05/09/2026 à 19h00.** Sujet : la règle de priorisation du CRM
+d'Ingrid — plus d'avis Google que d'abonnes, priorité haute.
+
+Trois conditions du protocole ne sont pas tenues :
+
+| Condition du protocole | Réel | Écart |
+|---|---|---|
+| ~31 s | **~56,7 s** *(lu sur la timeline de montage — à confirmer à l'écran TikTok)* | +83 % |
+| Même musique | **aucune musique** | manquante |
+| Publication en fin d'après-midi (16h15 / 16h27 / 16h40) | **19h00** | +2h20 |
+
+**Elle ne peut donc pas servir de n°4 ni de n°5.** Ce n'est pas un jugement
+sur la vidéo : c'est le protocole qui le dit, écrit le 02/09 avant tournage.
+
+⚠️ **Le plus lourd des trois écarts n'est pas celui qu'on a remarqué.**
+L'absence de musique a été vue tout de suite. **L'heure de publication, non**
+— et c'est elle qui change la fenêtre de distribution initiale, donc la
+comparabilité avec les trois dépouillements précédents.
+
+**Décision prise le 05/09 : ne pas republier.** La poussée initiale est déjà
+consommée, TikTok traite mal un ré-upload identique, et l'effet de la musique
+sur ce compte **n'a jamais été mesuré**. C'est échanger une perte certaine
+contre un gain supposé.
+
+⚠️ **Et cette vidéo ne mesure pas l'effet de la musique.** Elle est la seule
+sans, mais **N-10** dit exactement pourquoi ça ne suffit pas : deux vidéos
+jumelles ont fait 182 et 445 vues. Une vidéo dans une condition ne prouve
+rien. Indice à noter, pas conclusion à tirer.
+
+**Dépouillement : 07/09/2026 à 19h00** — 48 h après publication, pas à 16h40.
+
+#### Question ouverte, à trancher par le client
+
+La publication du **04/09** est-elle la n°4 du test, ou également hors test ?
+Ses conditions n'ont pas été relevées face au protocole. Tant que ce n'est
+pas tranché, **le test des 5 n'a que trois vidéos**.
 
 ---
 

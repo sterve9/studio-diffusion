@@ -211,6 +211,25 @@ incomparables entre elles.
 **À faire** : vérifier si le même décrochage terminal apparaît sur les n°2 à
 5. S'il se répète sur 4 vidéos, ce n'est plus un accident.
 
+### ❌ N-06 (b) est FAUX — corrigé le 03/09/2026 au dépouillement
+
+**Il n'y a pas de décrochage terminal.** La courbe seconde par seconde de la
+n°1, lue à 48 h, donne 0:18 → 23 % et 0:31 → 18 % : **5 points perdus sur les
+13 dernières secondes.** L'outro ne perd personne.
+
+L'écart entre « 85 % de part moyenne » et « 18,88 % au bout » ne venait pas
+d'une fuite finale. Il venait de l'**effondrement initial** : 55 % du public
+est parti avant 0:06.
+
+**L'erreur de raisonnement, à retenir.** Le 02/09, deux nombres agrégés —
+une moyenne et un taux de complétion — ont servi à déduire *où* le public
+partait. On ne peut pas. Une moyenne ne dit rien de la forme de la
+distribution qui la produit. Il fallait la courbe, elle existait, elle n'avait
+pas été demandée.
+
+**Conséquence pratique** : rien à changer sur l'outro Remotion. Le chantier
+« améliorer l'outro » sort de la liste. Ce qui se joue est **avant 0:06**.
+
 ## N-07 → futur test 2 (vidéos 6 à 10) — La thèse de l'utilité perçue
 
 **Formulée par le client le 02/09/2026**, en découvrant que le décrochage à
@@ -265,6 +284,7 @@ Le premier intervalle du test est relevé.
 |---|---|---|
 | N°1 | 01/09/2026 à 17h02 | — |
 | N°2 | 02/09/2026 à 16h27 | **23 h 25** |
+| N°3 | 03/09/2026 à 16h15 | **23 h 48** |
 
 ⚠️ **Ce chiffre ne se compare encore à rien.** La cadence des 16 vidéos
 précédentes n'a toujours pas été relevée. Sans elle, on ne sait pas si
@@ -273,6 +293,81 @@ donc si une troisième variable bouge en silence.
 
 **À faire avant le dépouillement final** : relever les dates de publication
 des 16 vidéos antérieures. C'est du recopiage, pas de l'analyse.
+
+### N-05, deuxième mesure — 03/09/2026
+
+**Deux intervalles, 23 h 25 puis 23 h 48.** Vingt-trois minutes d'écart entre
+eux. À l'intérieur du test, la cadence est donc **régulière** — cette
+variable-là ne bouge pas d'une vidéo à l'autre, ce qui est exactement ce
+qu'on voulait sans l'avoir verrouillé.
+
+⚠️ **Ça ne referme pas N-05.** La régularité *interne* au test ne dit rien de
+l'écart avec les 16 vidéos précédentes, toujours non relevées. Si le compte
+publiait auparavant une fois par semaine, un rythme quotidien reste une
+variable qui a changé — régulière, mais nouvelle.
+
+### N-09 → dépouillement du test — La durée a dérivé sur la n°3
+
+**Relevé le 03/09/2026**, à la publication.
+
+La n°3 dure **27 s** là où le protocole disait « ~31 s ». Les n°1 et n°2
+tenaient à 0,5 s l'une de l'autre ; la n°3 s'en écarte de **4 s, soit
+12,9 %** — huit fois plus.
+
+**Pourquoi ça compte** : la durée est **l'une des deux variables testées**.
+La faire varier *à l'intérieur* du groupe de test brouille la comparaison
+entre les cinq vidéos, en plus de gonfler mécaniquement la part moyenne
+regardée (31/27 = **+14,8 %** à attention constante).
+
+**Ce qui est décidé** : rien n'est refait, rien n'est réécrit. L'écart est
+consigné dans `TEST_5_VIDEOS.md` et **sera cité au dépouillement**. Les n°4
+et n°5 reviennent à ~31 s.
+
+**Ce que ça enseigne** : un protocole écrit ne tient pas tout seul. Il tenait
+sur deux vidéos, il a dérivé à la troisième, sans mauvaise intention et sans
+que personne ne le remarque au montage. **Un élément verrouillé doit être
+vérifié à la production, pas seulement écrit avant.** C'est le pendant
+pratique de N-08 : écrire ne suffit pas, il faut relire au moment de faire.
+
+## N-10 → étape 2 — La variabilité dépasse l'effet qu'on mesurait
+
+**Établi le 04/09/2026**, au dépouillement 48 h de la n°2.
+
+Les n°1 et n°2 ont été conçues pour être aussi identiques que possible :
+même protocole, même style de hook, même musique, mêmes hashtags,
+**0,5 seconde d'écart de durée**.
+
+| | n°1 | n°2 |
+|---|---|---|
+| Vues | **182** | **445** |
+| Part moyenne | 85 % | 58 % |
+| Abonnés | 0 | 3 |
+
+**Deux vidéos jumelles, un facteur 2,4 sur la seule mesure qui compte.**
+
+### Ce que ça implique pour tout test à venir
+
+L'écart entre deux vidéos *identiques* est plus grand que n'importe quel
+effet qu'on cherchait à attribuer au format. **Une vidéo par condition ne
+peut donc rien prouver.**
+
+Le seuil C3 lui-même — 425 vues — était le score d'une **vidéo unique**. On a
+comparé un tirage à un autre tirage en croyant comparer deux formats.
+
+⚠️ **Ce n'est pas un échec du protocole, c'est sa découverte.** Le test des 5
+a produit une connaissance qu'aucun raisonnement n'aurait donnée : sur ce
+compte, le bruit domine le signal à l'échelle d'une vidéo.
+
+### Ce que ça change concrètement
+
+- **Aucune conclusion sur « le format » ne tiendra à l'unité.** Il faut
+  raisonner sur des **groupes** de vidéos et comparer des médianes, ou
+  accepter de ne pas savoir.
+- **Un critère de réussite bâti sur le record d'une seule vidéo est fragile.**
+  Une ligne de base devrait être une médiane sur plusieurs publications.
+- **Les 16 vidéos antérieures deviennent précieuses** : leurs vues donneraient
+  enfin une distribution, donc une vraie ligne de base. Le relevé, déjà
+  demandé par N-05, passe de « utile » à « nécessaire ».
 
 ## N-08 → toutes les étapes — Ce qui n'est pas écrit devient invisible
 
@@ -307,3 +402,40 @@ pas verrouillé : il est seulement oublié.
 
 **Transposable aux 13 étapes** : ce qui est décidé de ne pas faire mérite
 d'être écrit autant que ce qui est fait.
+
+## N-11 → toutes les étapes — Écrit n'est pas vérifié
+
+**Constaté le 05/09/2026**, sur la vidéo publiée à 19h00 sans musique.
+
+**N-08** avait tiré la règle : une fiche de vidéo liste *tous* les éléments
+constants du protocole, y compris ceux qui ne bougent pas — musique,
+hashtags, texte de couverture, CTA. Elle a été appliquée : la musique
+**était écrite** dans le protocole du 02/09.
+
+Elle a quand même manqué.
+
+### Ce que ça enseigne
+
+Écrire un élément le rend **relisible**. Ça ne le rend pas **vérifié**.
+Entre les deux il manque un geste : quelqu'un qui, juste avant de publier,
+reprend la liste et coche.
+
+⚠️ **Et l'écart le plus lourd n'a pas été celui qu'on a vu.** L'absence de
+musique a sauté aux yeux. **L'heure de publication — 19h00 au lieu de 16h30
+— n'a été remarquée par personne**, alors qu'elle pèse davantage : elle
+change la fenêtre de distribution initiale, donc la comparabilité de tous
+les dépouillements.
+
+Ce qu'on repère spontanément, c'est ce qui est **absent**. Ce qui est
+seulement **déplacé** passe inaperçu.
+
+### Règle adoptée
+
+Le contrôle avant publication ne se fait pas de mémoire, et pas en relisant
+la fiche « pour voir si tout y est ». Il se fait **ligne par ligne**, et il
+inclut ce qui n'est pas dans le fichier vidéo : **l'heure, la description,
+les hashtags, la couverture.**
+
+**Transposable aux 13 étapes** : un critère écrit dans un document n'est pas
+un critère appliqué. C'est le même écart que **F-10** — une étape peut être
+marquée « Terminée » sans aucun livrable attaché.
