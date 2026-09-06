@@ -36,17 +36,21 @@ il doit apparaitre. Copie depuis ici, ne retape pas.
 
 == PRISE 1 : L'ACCROCHE (sur le classeur FINI) ==============
 
-Etat de depart a l'ecran, les 5 couleurs visibles :
+Etat de depart a l'ecran :
 
-  ligne 2  Boulangerie Le Fournil   À contacter     gris
-  ligne 3  Studio Pilates Move      Client          vert
+  ligne 2  Boulangerie Le Fournil   À contacter     BLANC
+  ligne 3  Studio Pilates Move      En discussion   jaune
   ligne 4  Garage Central           Perdu           rouge
-  ligne 5  Fleurs & Cie             En discussion   ambre
+  ligne 5  Fleurs & Cie             Client          vert
   ligne 6  Café des Arts            Contacté        bleu
 
-Les 2 gestes a filmer :
-  1. Café des Arts    : Contacté -> Client    (bleu vers vert)
-  2. Studio Pilates   : Client   -> Perdu     (vert vers rouge)
+Les 2 gestes a filmer, dans cet ordre :
+
+  1. Boulangerie Le Fournil : À contacter -> Client
+     BLANC vers VERT   (une ligne qui n'avait rien s'allume)
+
+  2. Café des Arts          : Contacté -> Perdu
+     BLEU vers ROUGE   (le saut de couleur le plus violent)
 
 A DIRE :
   "Regarde. Je change le statut, et la ligne entière change
@@ -135,27 +139,23 @@ A DIRE :
       vertical. Le gras, lui, survit au reencodage.
 
 
-  LES COULEURS : PAS DE CODE A RETENIR
-  ------------------------------------
-  Dans le pot de peinture, la grille de teintes va du plus
-  pale en haut au plus fonce en bas.
+  LES COULEURS RETENUES
+  ---------------------
+  Couleurs PURES, prises dans la 2e rangee du selecteur
+  (celle des teintes franches, sous les gris).
 
-  Prendre LA RANGEE OU LES COULEURS DEVIENNENT FRANCHES,
-  juste sous les pastels. Survoler pour lire le nom.
+      jaune  -> En discussion
+      rouge  -> Perdu
+      vert   -> Client
+      bleu   -> Contacté
+      AUCUN FOND -> À contacter
+         pas encore touche = pas encore de couleur.
+         Ca fait ressortir les quatre autres.
 
-  Quatre des cinq sont sur CETTE MEME LIGNE HORIZONTALE :
-
-      Light red 1      -> Perdu
-      Light yellow 1   -> En discussion
-      Light green 1    -> Client
-      Light blue 1     -> Contacté
-
-  Le gris est dans la PREMIERE rangee (blanc vers noir),
-  6e en partant de la gauche          -> À contacter
-
-  Codes en secours, si les noms ne correspondent pas :
-      Perdu e06666 | En discussion ffd966 | Client 93c47d
-      Contacté 6fa8dc | À contacter b7b7b7
+  TEXTE NOIR ET GRAS SUR LES CINQ. Pas de blanc.
+  Essaye du blanc sur le bleu et le statut devient illisible :
+  la pastille du menu deroulant a son propre fond gris clair,
+  le texte blanc y disparait.
 
   A DIRE :
     "Tu n'as aucun code à retenir. Tu prends la rangée où
