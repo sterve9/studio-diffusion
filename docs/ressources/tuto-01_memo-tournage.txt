@@ -125,25 +125,40 @@ A DIRE :
   3. Format cells if... -> tout en bas -> Custom formula is
   4. Formule, puis couleur (bouton Custom, coller le code) :
 
+  /!\ SUR CHAQUE REGLE, dans Formatting style :
+      - le fond (pot de peinture, bouton Custom, coller le code)
+      - le TEXTE EN NOIR
+      - le GRAS (bouton B)
+
+      Les pastels par defaut de Google disparaissent apres
+      compression TikTok, sur un telephone, dans un cadre
+      vertical. Le gras, lui, survit au reencodage.
+
+
 =$C2="Client"
 
-  couleur  d9ead3   vert     -> ligne 3
+  fond  93c47d   vert     -> ligne 3
 
 =$C2="Contacté"
 
-  couleur  cfe2f3   bleu     -> ligne 6
+  fond  6fa8dc   bleu     -> ligne 6
+  /!\ VERIFIER CETTE LIGNE : l'email est un lien bleu.
+      Si bonjour@cafedesarts.fr reste illisible sur le fond
+      bleu, forcer le texte en noir ne suffit pas -> il faut
+      enlever les liens de la colonne B :
+      selectionner B2:B6, Ctrl+C, puis Ctrl+Shift+V par-dessus.
 
 =$C2="En discussion"
 
-  couleur  fff2cc   ambre    -> ligne 5
+  fond  ffd966   jaune    -> ligne 5
 
 =$C2="Perdu"
 
-  couleur  f4cccc   rouge    -> ligne 4
+  fond  e06666   rouge    -> ligne 4
 
 =$C2="À contacter"
 
-  couleur  efefef   gris     -> ligne 2
+  fond  b7b7b7   gris     -> ligne 2
 
 
 A DIRE sur la premiere formule, en gros plan :
