@@ -1,0 +1,182 @@
+﻿MEMO DE TOURNAGE - TUTO 01
+"Ton tableau se colore tout seul"
+==================================================
+
+
+== AVANT D'APPUYER SUR REC ==================================
+
+[ ] Classeur FINI ouvert dans un onglet     -> plan d'accroche
+[ ] Feuille VIERGE dans un autre onglet     -> sheets.new
+[ ] Chrome a 125 %                          -> Ctrl et +
+[ ] F11 plein ecran                         -> cache tes 7 onglets
+[ ] Panneau lateral de Sheets ferme
+[ ] OBS : canvas 1920x1080, capture de fenetre Chrome
+[ ] Ce memo ouvert dans le Bloc-notes
+
+/!\ NE PAS utiliser View > Full screen de Sheets.
+    Ca cache les menus Format et Data, et c'est eux que tu enseignes.
+
+
+== LA REGLE QUI COUTE UNE PRISE =============================
+
+    COLLER AVEC  Ctrl + Shift + V
+
+    Jamais Ctrl+V. Le collage normal emporte le fond noir
+    de la source et ruine la prise.
+
+
+== LES ACCENTS COMPTENT =====================================
+
+Tout ce qui est dans ce fichier est accentue exactement comme
+il doit apparaitre. Copie depuis ici, ne retape pas.
+
+    "Contacte" sans accent ne trouvera jamais "Contacté".
+    La casse, elle, n'a pas d'importance : Sheets l'ignore.
+
+
+== PRISE 1 : L'ACCROCHE (sur le classeur FINI) ==============
+
+Etat de depart a l'ecran, les 5 couleurs visibles :
+
+  ligne 2  Boulangerie Le Fournil   À contacter     gris
+  ligne 3  Studio Pilates Move      Client          vert
+  ligne 4  Garage Central           Perdu           rouge
+  ligne 5  Fleurs & Cie             En discussion   ambre
+  ligne 6  Café des Arts            Contacté        bleu
+
+Les 2 gestes a filmer :
+  1. Café des Arts    : Contacté -> Client    (bleu vers vert)
+  2. Studio Pilates   : Client   -> Perdu     (vert vers rouge)
+
+A DIRE :
+  "Regarde. Je change le statut, et la ligne entière change
+   de couleur. Aucun code, aucune macro."
+
+-> Refaire 5 fois. Souris qui ne cherche pas.
+
+
+== PRISE 2 : LA CONSTRUCTION (feuille VIERGE, sans couper) ==
+
+A DIRE en ouvrant la feuille vide :
+  "Je pars d'une feuille vide et je le fais en quarante
+   secondes. Le truc, c'est un seul caractère que presque
+   personne ne met."
+
+
+--- 2.1  Les en-tetes ---------------------------------------
+
+A COLLER EN A1 AVEC Ctrl+Shift+V :
+
+Nom	Contact	Statut	Priorité	Dernier contact	Prochaine relance	Notes
+
+Puis :
+  - selectionner la ligne 1 -> Ctrl+B
+  - View > Freeze > 1 row
+
+
+--- 2.2  Les 5 prospects ------------------------------------
+
+A COLLER EN A2 AVEC Ctrl+Shift+V :
+
+Boulangerie Le Fournil	contact@lefournil.fr
+Studio Pilates Move	06 12 34 56 78
+Garage Central	garage.central@gmail.com
+Fleurs & Cie	06 98 76 54 32
+Café des Arts	bonjour@cafedesarts.fr
+
+
+--- 2.3  Le menu deroulant ----------------------------------
+
+A DIRE : "Le statut, on ne le tape pas. On le choisit."
+
+  1. Clic sur la LETTRE C (colonne entiere)
+  2. Data > Data validation
+  3. + Add rule
+  4. Criteria -> Dropdown
+  5. Apply to range -> corriger en :  Prospects!C2:C999
+     /!\ Sheets met C1 par defaut. L'en-tete aurait une fleche,
+         et il pre-remplirait les options avec le mot "Statut".
+  6. Les 5 options (+ Add another item), a copier d'ici :
+
+À contacter
+Contacté
+En discussion
+Client
+Perdu
+
+  7. Laisser les pastilles en GRIS. Ne pas les colorer.
+     Sinon le spectateur croit que c'est le menu qui colore,
+     et la demonstration du dollar tombe a plat.
+  8. Done
+  9. Attribuer un statut different a chacun des 5 prospects
+
+
+--- 2.4  LE DOLLAR (le coeur du tuto) -----------------------
+
+A DIRE :
+  "La, la plupart des gens s'arretent et colorient a la main.
+   On va le faire colorier tout seul, et la ligne entière,
+   pas juste la case."
+
+  1. Format > Conditional formatting
+  2. Apply to range ->   A2:G999
+     /!\ Verifier ce champ A CHAQUE NOUVELLE REGLE.
+         Sheets le pre-remplit avec la selection du moment.
+  3. Format cells if... -> tout en bas -> Custom formula is
+  4. Formule, puis couleur (bouton Custom, coller le code) :
+
+=$C2="Client"
+
+  couleur  d9ead3   vert     -> ligne 3
+
+=$C2="Contacté"
+
+  couleur  cfe2f3   bleu     -> ligne 6
+
+=$C2="En discussion"
+
+  couleur  fff2cc   ambre    -> ligne 5
+
+=$C2="Perdu"
+
+  couleur  f4cccc   rouge    -> ligne 4
+
+=$C2="À contacter"
+
+  couleur  efefef   gris     -> ligne 2
+
+
+A DIRE sur la premiere formule, en gros plan :
+  "Le dollar devant le C, c'est tout le secret. Il dit :
+   regarde toujours la colonne du statut, quelle que soit
+   la case. Sans lui, ca ne colore rien."
+  "Et le 2, c'est parce que ma selection commence a la
+   ligne 2. Si tu commences a la 5, tu ecris dollar C 5."
+
+
+--- 2.5  Le resultat ----------------------------------------
+
+A DIRE : "Et voilà."
+Rejouer le geste de l'accroche sur la feuille construite.
+
+
+--- 2.6  Le CTA ---------------------------------------------
+
+A DIRE :
+  "La prochaine, c'est la colonne qui affiche
+   'à relancer aujourd'hui' toute seule.
+   Commente RELANCE et je te l'envoie."
+
+
+== SI CA NE COLORE PAS : 3 CAUSES, DANS L'ORDRE =============
+
+1. Le dollar manque.
+   =C2="Client" fait glisser la reference colonne par colonne.
+   B2 interrogerait D2, C2 interrogerait E2, etc.
+
+2. Le numero de ligne ne correspond pas au debut de la plage.
+   Plage A2 -> formule $C2.  Plage A5 -> formule $C5.
+
+3. Le texte ne correspond pas au caractere pres.
+   Les accents comptent. La casse, non.
+   Le plus sur : copier la valeur depuis ce fichier.
