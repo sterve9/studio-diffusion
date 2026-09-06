@@ -126,7 +126,7 @@ A DIRE :
   4. Formule, puis couleur (bouton Custom, coller le code) :
 
   /!\ SUR CHAQUE REGLE, dans Formatting style :
-      - le fond (pot de peinture, bouton Custom, coller le code)
+      - le fond
       - le TEXTE EN NOIR
       - le GRAS (bouton B)
 
@@ -135,30 +135,50 @@ A DIRE :
       vertical. Le gras, lui, survit au reencodage.
 
 
-=$C2="Client"
+  LES COULEURS : PAS DE CODE A RETENIR
+  ------------------------------------
+  Dans le pot de peinture, la grille de teintes va du plus
+  pale en haut au plus fonce en bas.
 
-  fond  93c47d   vert     -> ligne 3
+  Prendre LA RANGEE OU LES COULEURS DEVIENNENT FRANCHES,
+  juste sous les pastels. Survoler pour lire le nom.
 
-=$C2="Contacté"
+  Quatre des cinq sont sur CETTE MEME LIGNE HORIZONTALE :
 
-  fond  6fa8dc   bleu     -> ligne 6
+      Light red 1      -> Perdu
+      Light yellow 1   -> En discussion
+      Light green 1    -> Client
+      Light blue 1     -> Contacté
+
+  Le gris est dans la PREMIERE rangee (blanc vers noir),
+  6e en partant de la gauche          -> À contacter
+
+  Codes en secours, si les noms ne correspondent pas :
+      Perdu e06666 | En discussion ffd966 | Client 93c47d
+      Contacté 6fa8dc | À contacter b7b7b7
+
+  A DIRE :
+    "Tu n'as aucun code à retenir. Tu prends la rangée où
+     les couleurs deviennent franches, et tu descends."
+
+
+  LES CINQ REGLES
+  ---------------
+
+=$C2="Client"          vert     -> ligne 3
+
+=$C2="Contacté"        bleu     -> ligne 6
   /!\ VERIFIER CETTE LIGNE : l'email est un lien bleu.
       Si bonjour@cafedesarts.fr reste illisible sur le fond
-      bleu, forcer le texte en noir ne suffit pas -> il faut
-      enlever les liens de la colonne B :
+      bleu, forcer le texte en noir ne suffit pas -> enlever
+      les liens de la colonne B :
       selectionner B2:B6, Ctrl+C, puis Ctrl+Shift+V par-dessus.
 
-=$C2="En discussion"
+=$C2="En discussion"   jaune    -> ligne 5
 
-  fond  ffd966   jaune    -> ligne 5
+=$C2="Perdu"           rouge    -> ligne 4
 
-=$C2="Perdu"
-
-  fond  e06666   rouge    -> ligne 4
-
-=$C2="À contacter"
-
-  fond  b7b7b7   gris     -> ligne 2
+=$C2="À contacter"     gris     -> ligne 2
 
 
 A DIRE sur la premiere formule, en gros plan :
