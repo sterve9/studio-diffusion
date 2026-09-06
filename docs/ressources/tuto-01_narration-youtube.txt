@@ -17,16 +17,13 @@ COMMENT L'ENREGISTRER
    Image : la ligne blanche passe au vert, puis le bleu au rouge
 -------------------------------------------------------------
 
-Regarde ce tableau. Je change un statut... et la ligne entiere
-change de couleur. Et celle-la aussi.
+Voici comment colorer automatiquement chaque ligne de ton CRM
+selon le statut du prospect. Pas de code, pas d'extension.
 
-Aucun code. Aucune extension. Aucune macro. C'est un Google
-Sheet ordinaire, et je vais le construire devant toi en partant
-d'une feuille vide.
+Et surtout, tu vas comprendre le caractere qui rend tout ca
+evident.
 
-A la fin de cette video tu auras le meme, et tu sauras faire la
-seule chose qui bloque tout le monde : un caractere, que presque
-personne ne met au bon endroit.
+Je pars d'une feuille vide.
 
 
 -------------------------------------------------------------
