@@ -1,0 +1,242 @@
+﻿NARRATION - TUTO 01 (version YouTube, 16:9)
+"Transformer un Google Sheet en CRM qui se colore tout seul"
+=============================================================
+
+COMMENT L'ENREGISTRER
+  - Une seule prise, d'un bout a l'autre.
+  - Lis-le une fois a voix haute AVANT d'enregistrer, puis
+    dis-le a ta facon. Ne le recite pas mot a mot.
+  - Rythme d'explication, pas rythme TikTok. Tu as le temps.
+  - Si tu te trompes : marque un silence de 2 secondes et
+    reprends la phrase. Le silence te servira de repere au
+    montage.
+
+
+-------------------------------------------------------------
+1. ACCROCHE
+   Image : la ligne blanche passe au vert, puis le bleu au rouge
+-------------------------------------------------------------
+
+Regarde ce tableau. Je change un statut... et la ligne entiere
+change de couleur. Et celle-la aussi.
+
+Aucun code. Aucune extension. Aucune macro. C'est un Google
+Sheet ordinaire, et je vais le construire devant toi en partant
+d'une feuille vide.
+
+A la fin de cette video tu auras le meme, et tu sauras faire la
+seule chose qui bloque tout le monde : un caractere, que presque
+personne ne met au bon endroit.
+
+
+-------------------------------------------------------------
+2. LES COLONNES
+   Image : tu tapes les en-tetes
+-------------------------------------------------------------
+
+On commence par les colonnes. Nom, contact, statut, priorite,
+relance, notes.
+
+Six colonnes. Pas quinze. Un CRM qu'on ne remplit pas ne sert a
+rien, et personne ne remplit quinze colonnes.
+
+
+-------------------------------------------------------------
+3. LE FIGEAGE
+   Image : View > Freeze > 1 row
+-------------------------------------------------------------
+
+Je fige la premiere ligne. View, Freeze, one row.
+
+Sur dix lignes ca ne sert a rien. Sur deux cents, c'est ce qui
+fait que tu sais encore quelle colonne tu regardes.
+
+
+-------------------------------------------------------------
+4. LES PROSPECTS -- le premier vrai conseil
+   Image : le collage des 5 lignes
+-------------------------------------------------------------
+
+Je colle cinq prospects pour la demonstration. Et fais attention
+a ca : je colle avec Controle + Majuscule + V, pas Controle + V.
+
+Controle + Majuscule + V, c'est "coller les valeurs seulement".
+Si tu colles normalement depuis un site ou un document, tu
+emportes son fond, sa police et ses couleurs avec le texte.
+
+Ca m'est arrive ce matin : je me suis retrouve avec des cellules
+a fond noir sans comprendre d'ou ca venait.
+
+
+-------------------------------------------------------------
+5. LE MENU DEROULANT
+   Image : Data > Data validation > Dropdown
+-------------------------------------------------------------
+
+Le statut, on ne le tape pas. On le choisit.
+
+Data, Data validation, Add rule, et dans Criteria je prends
+Dropdown.
+
+Premier piege, tout de suite. Sheets veut appliquer la regle a
+la colonne entiere, C1 compris -- donc a mon en-tete. Je corrige
+en C2.
+
+Si tu ne le fais pas, ton titre "Statut" se retrouve avec une
+fleche de menu deroulant. Et pire : Sheets pre-remplit les
+options avec le mot "Statut" lui-meme.
+
+Cinq statuts : a contacter, contacte, en discussion, client,
+perdu. Cinq, pas douze. Un statut que tu n'utilises jamais est
+un statut qui te fait hesiter a chaque ligne.
+
+
+-------------------------------------------------------------
+6. LA PARTIE QUE TOUT LE MONDE RATE
+   Image : Format > Conditional formatting
+-------------------------------------------------------------
+
+Maintenant, la partie que tout le monde rate.
+
+La plupart des gens s'arretent la et colorient a la main. On va
+le faire colorier tout seul. Et la ligne entiere, pas juste la
+case du statut.
+
+Format, Conditional formatting.
+
+Et avant de taper quoi que ce soit, il faut comprendre une
+chose, sinon rien ne marchera jamais.
+
+La mise en forme conditionnelle ne colorie pas des cellules.
+Elle pose la MEME QUESTION a chaque cellule de la plage, une par
+une. Celles qui repondent oui recoivent la couleur.
+
+Ma plage part de A2, jusqu'a la derniere colonne.
+[DIS ICI LA PLAGE EXACTE QUI EST A TON ECRAN]
+
+Surtout pas la colonne C. Si je selectionne la colonne C, seule
+la case du statut se colore. C'est toute la ligne que je veux.
+
+
+-------------------------------------------------------------
+7. LE DOLLAR -- LE COEUR DE LA VIDEO
+   Image : gros plan sur la formule tapee, a vitesse 1x
+-------------------------------------------------------------
+
+Je descends dans la liste, tout en bas : Custom formula is.
+
+Et je tape : egal, dollar, C, 2, egal, guillemets, Client.
+
+Le dollar devant le C, c'est tout le secret.
+
+Voila ce qui se passe vraiment.
+
+J'ecris cette formule pour la case en haut a gauche de ma
+selection. Ensuite, Sheets la recopie pour toutes les autres en
+la decalant -- exactement comme quand tu tires une formule vers
+le bas et vers la droite.
+
+Le dollar empeche le decalage horizontal. Il dit : quelle que
+soit la case ou tu te trouves, regarde toujours la colonne du
+statut.
+
+Sans lui, la case B2 irait interroger la colonne D. La case C2
+irait interroger la colonne E. Chaque cellule regarderait une
+colonne differente, et tu aurais n'importe quoi.
+
+Le 2, lui, n'a pas de dollar. Et c'est voulu : il DOIT se
+decaler vers le bas. C'est ce qui fait que la ligne 3 regarde
+C3, et la ligne 4 regarde C4.
+
+Resultat : toutes les cases d'une meme ligne posent la meme
+question. Donc elles repondent pareil. Donc elles se colorent
+ensemble.
+
+Et attention au chiffre. Ce n'est pas 2 parce que l'en-tete est
+en ligne 1. C'est 2 parce que MA SELECTION commence en ligne 2.
+Si tu selectionnes a partir de la ligne 5, tu ecris dollar C 5.
+C'est mecanique.
+
+
+-------------------------------------------------------------
+8. LA COULEUR
+   Image : le selecteur de couleurs
+-------------------------------------------------------------
+
+Je choisis la couleur. Et tu n'as aucun code a retenir : tu
+prends la rangee ou les couleurs deviennent franches, et tu
+descends.
+
+Texte en noir, en gras. Un tableau se lit d'un coup d'oeil, ou
+ne se lit pas.
+
+
+-------------------------------------------------------------
+9. LES QUATRE AUTRES -- le deuxieme piege
+   Image : les regles qui defilent en accelere
+-------------------------------------------------------------
+
+Et maintenant je repete. Contacte, en discussion, perdu, a
+contacter. Meme formule, seul le mot entre guillemets change.
+
+Une seule chose a verifier a chaque fois, et c'est le deuxieme
+piege : Sheets pre-remplit la plage avec ce que tu avais
+selectionne au moment ou tu cliques sur Add another rule.
+
+Si tu ne regardes pas ce champ, tes quatre autres regles ne
+coloreront qu'une seule colonne.
+
+
+-------------------------------------------------------------
+10. LE TEST
+    Image : tu rejoues le geste de l'accroche
+-------------------------------------------------------------
+
+Et voila.
+
+Je change un statut... la ligne suit. Je change l'autre... elle
+suit aussi.
+
+Tu as un CRM qui se lit sans etre lu.
+
+
+-------------------------------------------------------------
+11. SI CA NE MARCHE PAS CHEZ TOI
+    Image : plan fixe sur le tableau fini
+-------------------------------------------------------------
+
+Si chez toi ca ne colore rien, il y a trois causes, dans cet
+ordre.
+
+Un : le dollar manque.
+
+Deux : le numero de ligne de ta formule ne correspond pas a la
+premiere ligne de ta plage.
+
+Trois : le texte ne correspond pas au caractere pres. Les
+accents comptent. La casse, non : "client" en minuscule trouve
+bien "Client". Mais "contacte" sans accent ne trouvera jamais
+"contacte" avec l'accent aigu.
+
+Le plus sur : copie la valeur depuis une cellule, et colle-la
+dans ta formule.
+
+
+-------------------------------------------------------------
+12. CTA (version YOUTUBE)
+-------------------------------------------------------------
+
+La prochaine video, c'est la colonne relance. Celle qui affiche
+toute seule "a relancer aujourd'hui", sans que tu aies a y
+penser.
+
+Abonne-toi pour ne pas la rater. Et si tu veux que je t'envoie
+le fichier tel quel, dis-le en commentaire.
+
+
+-------------------------------------------------------------
+CTA DE L'EXTRAIT TIKTOK (a enregistrer separement, 8 s)
+-------------------------------------------------------------
+
+La version complete, ou je construis tout de zero, est sur ma
+chaine. Commente RELANCE et je t'envoie le lien.
