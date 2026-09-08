@@ -524,3 +524,86 @@ pourcentage de rétention. C'est de l'arithmétique, pas un résultat.
 seule base de son absence des analytiques. Ses chiffres sont maintenant là :
 238 vues, 37 % de part moyenne, 12,58 % vue en entier — soit une meilleure
 rétention que la « meilleure vidéo du compte ». Le jugement était prématuré.
+
+---
+
+# 🔒 CLÔTURE DU TEST — 08/09/2026
+
+**Le test s'arrête à trois vidéos sur cinq. Il n'aura pas de n°4 ni de n°5.**
+
+Cette clôture est écrite pour une raison précise : un test qu'on n'arrête pas
+explicitement continue d'être attendu. `02.Probleme_Metier.md` patientait
+depuis le 01/09 sur un résultat qui n'arrivera jamais.
+
+## Ce qui a réellement été publié
+
+| | Date et heure | Durée | Vues | Conforme au protocole |
+|---|---|---|---|---|
+| **n°1** | 01/09 à 17h02 | 31 s | **182** | ✅ |
+| **n°2** | 02/09 à 16h27 | 30,50 s | **445** | ✅ |
+| **n°3** | 03/09 à 16h15 | 27 s | **196** | ⚠️ durée 12,9 % sous la cible — voir **N-09** |
+| — | 04/09 à 16h40 | non relevée | non dépouillée | ❓ jamais évaluée face au protocole |
+| — | 05/09 à 19h00 | ~56,7 s | à dépouiller | ❌ trois écarts — voir la fiche « hors test » |
+
+## Les trois raisons de l'arrêt
+
+**1. La variabilité écrase l'effet mesuré.** Les n°1 et n°2 sont jumelles —
+31 s et 30,50 s, même format, même style. Elles ont fait **182 et 445 vues**,
+soit un rapport de 2,4. Aucune différence entre conditions ne peut être
+attribuée quand le bruit dépasse le signal. C'est **N-10**, et c'est
+définitif tant qu'on publie une vidéo par condition.
+
+**2. Le critère C1 était aveugle**, déclaré tel le 02/09 preuve à l'appui. La
+seconde de décrochage vaut 0:01–0:02 sur toutes les vidéos du compte, tous
+formats et tous hooks. Un indicateur qui ne varie jamais ne mesure rien.
+
+**3. La stratégie a changé le 06/09.** La série « jour N » a été abandonnée
+au profit de tutoriels autonomes, et la production est passée sur YouTube.
+Les vidéos qui auraient été les n°4 et n°5 n'existent pas et n'existeront
+pas. Le protocole ne peut plus être tenu, même en le voulant.
+
+## Ce que le test a produit, et ce n'est pas rien
+
+- **La première mesure de la profondeur du décrochage**, celle que `CLAUDE.md`
+  réclamait depuis que C1 avait été déclaré aveugle :
+
+  | | 0:02 | 0:06 |
+  |---|---|---|
+  | n°1 | 73 % | 45 % |
+  | n°2 | 62 % | 32 % |
+  | n°3 | 56 % | 27 % |
+
+- **La conversion est saine, la portée est la contrainte.** ~1 % d'abonnement
+  pour qui regarde. Ceux qui voient suivent ; trop peu voient.
+
+- **Le contre-indice tient.** La vidéo la plus vue du compte dure **2 min 41**
+  et fait 425 vues. Les trois courtes du test font 182, 445 et 196. Raccourcir
+  n'a jamais augmenté la portée dans ces données.
+
+- **Trois notes au carnet** : **N-09** sur la dérive de durée, **N-10** sur la
+  variabilité, **N-11** sur l'écart entre un critère écrit et un critère
+  vérifié.
+
+## Ce qu'il n'a pas tranché, et qu'il faut cesser d'attendre
+
+| Question | État |
+|---|---|
+| Raccourcir augmente-t-il la portée ? | **Non établi.** Les données pointent dans l'autre sens |
+| Le hook commande-t-il la portée ? | **Non établi.** La n°1 a la meilleure rétention et le moins de vues |
+| La musique change-t-elle quelque chose ? | **Jamais mesuré** |
+| L'heure de publication ? | **Abandonné le 07/09** — sous 100 abonnés, la distribution est algorithmique, pas liée à l'audience |
+
+## Ce que ça débloque
+
+`02.Probleme_Metier.md` **n'attend plus rien.**
+
+Pas parce que le test a conclu, mais parce qu'il est fermé — et parce que la
+semaine a produit une mesure que le test ne cherchait même pas : **le coût en
+temps par preuve publiée.**
+
+Du 01 au 05/09, une journée de travail donnait **une** vidéo. Le 07/09, une
+seule prise a donné **une vidéo YouTube et six TikTok**.
+
+C'est cette mesure-là qui correspond au besoin écrit le 01/09 — *« sans que ça
+ne me prenne plus de temps »* — et non la portée, sur laquelle le test s'était
+concentré.
