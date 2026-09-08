@@ -1,0 +1,73 @@
+﻿# ACCROCHE
+
+Ce tableau me dit qui je dois relancer aujourd'hui.
+
+Je n'ai rien ouvert, rien coché, rien mis à jour. Il l'a fait tout seul pendant la nuit.
+
+Voici comment le construire, à partir d'une feuille vide.
+
+> deux lignes s'allument en orange, les autres restent blanches
+
+# LES COLONNES
+
+Quatre colonnes suffisent.
+
+Le nom. Le contact. La date du dernier contact. Et la date de la prochaine relance.
+
+Je fige la première ligne, pour qu'elle reste visible quand je descends.
+
+! coller les prospects en Controle Majuscule V, jamais Controle V
+
+# LA DATE QUI SE CALCULE
+
+La colonne « prochaine relance », je ne la remplis pas. Je la calcule.
+
+Sept jours après le dernier contact. C'est mon rythme, mets le tien.
+
+Et je verrouille le cas de la case vide : si je n'ai jamais contacté quelqu'un, il n'y a pas de relance à prévoir.
+
+! gros plan sur la formule, vitesse 1x
+
+> la date apparaît toute seule dans chaque ligne remplie
+
+# LE MOT QUI COMPTE
+
+Maintenant la colonne qui décide.
+
+Elle doit afficher « à relancer » quand la date est arrivée, et rien du tout avant.
+
+Et le mot qui fait tout, c'est celui-ci : aujourd'hui.
+
+! gros plan sur TODAY, plan fixe
+
+Ce n'est pas une date que j'ai tapée. C'est une fonction, et elle se recalcule à chaque fois que la feuille s'ouvre.
+
+Donc demain, sans que je touche à rien, une ligne de plus s'allumera. Et le jour d'après une autre.
+
+C'est ça, la différence entre un tableau que tu tiens à jour et un tableau qui se tient à jour tout seul.
+
+# LA LIGNE QUI S'ALLUME
+
+Et pour que ça se voie sans lire, je colore la ligne entière.
+
+Format, mise en forme conditionnelle, formule personnalisée.
+
+Le dollar devant la lettre, comme dans la vidéo précédente : il dit de regarder toujours la même colonne, quelle que soit la case.
+
+> la ligne entière passe à l'orange
+
+# LE TEST
+
+Je change une date, je la recule de dix jours.
+
+> la ligne s'allume immédiatement
+
+Voilà. Ce tableau te dira demain matin qui appeler, et tu n'auras rien à faire pour ça.
+
+# CTA
+
+La prochaine, c'est le compteur : combien de prospects par statut, mis à jour tout seul à chaque ligne ajoutée.
+
+Abonne-toi pour ne pas la rater.
+
+Et la version complète, où je construis tout de zéro, est sur ma chaîne YouTube : IA Architecte.
