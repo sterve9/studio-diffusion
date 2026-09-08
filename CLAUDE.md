@@ -10,7 +10,8 @@ doit pas l'être avant d'avoir traversé les étapes de la méthode.
 l'étape 11.**
 
 **Où en est la méthode** — étape 1 (Besoin Client) **terminée** le 01/09/2026,
-livrable attaché et publié. Étape 2 (Problème Métier) **en attente de mesure**.
+livrable attaché et publié. **Étape 2 (Problème Métier) débloquée le
+08/09/2026** — le test qui la retenait est clos, il reste à l'écrire.
 Les onze suivantes ne sont pas ouvertes. Le point de reprise à jour est
 `docs/REPRISE.md` — **à lire en premier**, avant ce fichier-ci.
 
@@ -59,13 +60,20 @@ est confirmée, elle n'est plus une hypothèse.**
    dépasseraient **100 %** sur 31 s. Le format transforme une attention
    correcte en mauvais bulletin. Mais c'est une division, pas un résultat.
 
-### Les trois vidéos mesurées à ce jour
+### Les cinq vidéos mesurées à ce jour
 
-| Durée | Vues | Part moyenne | Vue en entier | Décrochage |
+| Durée | Vues | Part moyenne | Vue en entier | 0:06 |
 |---|---|---|---|---|
-| 161 s — référence, 31/08 | **425** | 21 % | 8,32 % | 0:02 |
-| 90,30 s — témoin, 31/08 | **238** | 37 % | 12,58 % | 0:02 |
-| 31 s — n°1 du test, 01/09 | **156** *(J+1, incomplet)* | 83 % | 17,08 % | 0:02 |
+| 161 s — référence, 31/08 | **425** | 21 % | 8,32 % | — |
+| 90,30 s — témoin, 31/08 | **238** | 37 % | 12,58 % | — |
+| 31 s — n°1, 01/09 | **182** | 85 % | 18,88 % | 45 % |
+| 30,50 s — n°2, 02/09 | **445** | 58 % | 11,42 % | 32 % |
+| 27 s — n°3, 03/09 | **196** | — | — | 27 % |
+
+⚠️ **La colonne « décrochage » a disparu**, et c'est volontaire : elle valait
+0:02 partout, sur toutes les vidéos du compte. C1 a été déclaré aveugle le
+02/09. Ce qui varie, et donc ce qui se mesure, est la **profondeur** de la
+chute — d'où la colonne 0:06.
 
 ⚠️ **Contre-indice, relevé le 01/09 et renforcé le 02/09 : plus la vidéo est
 courte, moins elle fait de vues.** La corrélation va dans le sens **inverse**
@@ -102,20 +110,29 @@ teintée de solution. **L'étape 1 reste à écrire.**
 
 ## Contexte utile
 
-**Ce que publie l'auteur** : une série vidéo racontant la construction de
-`crm-prospection-ingrid` selon la méthode, étape par étape. **Au 02/09/2026 :
-jour 6, les composants.** Le jour 7, les contrats de données, est annoncé par
-le CTA de la dernière vidéo.
+**Ce que publie l'auteur** — ⚠️ **cela a changé le 06/09/2026.**
+
+La série « jour N », qui racontait la construction de `crm-prospection-ingrid`
+étape par étape, est **abandonnée**. Le motif est structurel : « jour 7 : les
+contrats de données » sert au spectateur l'épisode 7 d'une histoire qu'il n'a
+pas commencée. Sur « Pour toi », une vidéo doit tenir seule.
+
+Remplacée par des **tutoriels autonomes** — construire un CRM dans Google
+Sheets, de zéro, en direct. Chacun porte sa promesse dans son titre et ne
+suppose aucun des autres.
 
 **Ses trois canaux :**
 
-- **YouTube** — l'explication complète. C'est la preuve elle-même.
-  Chaîne créée, **encore vide**. Plus gros actif inutilisé.
-  ⚠️ Elle devra démarrer au **jour 1**, pas au jour en cours : une chaîne se
-  regarde en série. Décision du 01/09, voir `docs/CARNET.md` note **N-04**.
-- **TikTok** — seul canal actif. **16 vidéos au 31/08/2026, plus la vidéo
-  témoin du 31/08 et les deux vidéos du test.** ⚠️ Le total exact n'a pas été
-  relu à l'écran depuis — à vérifier avant de le citer.
+- **YouTube** — chaîne `IA Architecte`. **Première vidéo publiée le
+  07/09/2026** : *CRM Google Sheets : colorer chaque ligne selon le statut*,
+  4 min 23, format 16:9. Validation de chaîne en cours.
+  ⚠️ **La règle « démarrer au jour 1 » (N-04) est caduque** : elle valait pour
+  une série, et un tutoriel n'a pas de jour 1. C'est le pivot du 06/09 qui a
+  fait tomber la contrainte, pas une décision prise contre elle.
+- **TikTok** — **le total exact n'a jamais été relu à l'écran.** Autour de 20
+  vidéos, sans plus de précision. ⚠️ Ne pas citer de chiffre sans être allé le
+  lire. Six extraits verticaux du tuto 01 sont en cours de publication depuis
+  le 07/09.
 - **LinkedIn** — publication irrégulière. C'est pourtant le canal où le
   public professionnel visé se trouve déjà.
 
@@ -142,8 +159,10 @@ C'est le **premier projet neuf** à y être déroulé en direct, dans l'ordre de
 frictions** rencontrées en utilisant ce système pour de vrai. Tout noter au fil
 de l'eau, sans trier sur le moment.
 
-**Le relevé vit dans `docs/FRICTIONS.md`** — douze frictions au 02/09/2026,
-F-01 à F-12. Ne pas les dupliquer ici. Les deux qui commandent la conduite au
+**Le relevé vit dans `docs/FRICTIONS.md`** — **onze** frictions, numérotées
+F-01 à F-12. ⚠️ **Il n'y a pas de F-11** : la numérotation saute, et les
+identifiants ne se renumérotent jamais. Compté le 08/09/2026, la mention
+« douze » était fausse. Ne pas les dupliquer ici. Les deux qui commandent la conduite au
 quotidien :
 
 1. **F-01 — une preuve publiée ne se corrige pas**, ni titre, ni résumé.
@@ -204,10 +223,16 @@ TikTok : profil → menu **☰** → **Outils de créateur** → **TikTok Studio
 onglet **Contenu**. La courbe de rétention y est donnée **seconde par seconde**.
 (Pas dans « Paramètres et confidentialité ».)
 
-**Le test des 5 vidéos est en cours** — journal complet dans
-`docs/TEST_5_VIDEOS.md`, protocole et critères écrits **avant** le premier
-tournage. Deux vidéos publiées au 02/09 : n°1 le 01/09 à 17h02 (31 s), n°2 le
-02/09 à 16h27 (30,50 s). **Aucun renvoi YouTube** — la chaîne est vide.
+**Le test des 5 vidéos est CLOS depuis le 08/09/2026**, arrêté à trois
+vidéos sur cinq. Journal complet et raisons de l'arrêt dans
+`docs/TEST_5_VIDEOS.md`, section « Clôture ».
+
+Trois motifs : la variabilité écrase l'effet mesuré (**N-10**, 182 contre 445
+vues sur deux vidéos jumelles), C1 était aveugle, et le pivot du 06/09 rend le
+protocole intenable — les n°4 et n°5 n'existeront pas.
+
+⚠️ **Ne pas le rouvrir.** Ce qu'il a produit et ce qu'il n'a pas tranché sont
+écrits ; le reste serait de l'attente.
 
 ⚠️ **Ne jamais écrire qu'une rétention à 60 % prouverait quoi que ce soit.**
 Sur une vidéo trois fois plus courte, la part moyenne regardée monte par simple
