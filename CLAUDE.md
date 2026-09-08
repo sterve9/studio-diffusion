@@ -10,9 +10,12 @@ doit pas l'être avant d'avoir traversé les étapes de la méthode.
 l'étape 11.**
 
 **Où en est la méthode** — étape 1 (Besoin Client) **terminée** le 01/09/2026,
-livrable attaché et publié. **Étape 2 (Problème Métier) débloquée le
-08/09/2026** — le test qui la retenait est clos, il reste à l'écrire.
-Les onze suivantes ne sont pas ouvertes. Le point de reprise à jour est
+livrable attaché et publié. **Les étapes 2 à 8 ont été écrites le
+08/09/2026** : la phase COMPRENDRE (01→05) et la phase CONCEVOIR (06→08) sont
+closes, décision d'architecture comprise. La phase CHOISIR (09→10) suit.
+
+⚠️ **Écrire un fichier et terminer l'étape dans le système sont deux gestes
+distincts.** Le second est définitif (`F-02`) et enregistre l'heure du clic. Le point de reprise à jour est
 `docs/REPRISE.md` — **à lire en premier**, avant ce fichier-ci.
 
 ---
@@ -206,14 +209,27 @@ Deux références sur cette machine, à lire avant d'écrire :
 
 ---
 
-## 🚧 La décision à NE PAS prendre avant l'étape 8
+## ✅ La décision d'architecture, prise le 08/09/2026
 
-> Le code atterrira-t-il **dans le module M4** de `methode-architecte-ia`, ou
-> dans une **application séparée** consommant les preuves par contrat ?
+> **Une application séparée**, consommant les preuves par contrat.
 
-C'est une question d'architecture. La trancher maintenant, ce serait choisir la
-solution avant d'avoir écrit le besoin — exactement ce que la méthode interdit.
-Si elle revient avant l'étape 8, la reporter.
+`methode-architecte-ia` produit les preuves. `studio-diffusion` les diffuse sur
+**YouTube et TikTok**. Aucune base, aucun déploiement, aucune authentification
+partagés — seulement le contrat `CT-01`.
+
+⚠️ **LinkedIn et X restent dans M4.** L'étape 2 établit que LinkedIn n'est pas
+le problème ; reconstruire ce qui fonctionne serait du travail sans bénéfice.
+M4 rapporte ce qu'il a diffusé via `CT-01`, ce qui garde le calcul des états
+possible.
+
+**Le motif décisif est `F-12`** : dans `methode-architecte-ia`, un jeton expiré
+a déjà tout arrêté, pages publiques comprises. Y ajouter les OAuth YouTube et
+TikTok reviendrait à multiplier la cause d'une panne déjà subie, dans
+l'application qui porte les preuves.
+
+> **Une preuve doit pouvoir être publiée même quand la diffusion est cassée.**
+
+Options écartées et raisonnement complet : `docs/methode/08.Architecture.md`.
 
 ---
 
