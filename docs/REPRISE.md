@@ -29,7 +29,7 @@ C'est ici qu'on réfléchit. Ailleurs, on exécute.
 | Étape | État |
 |---|---|
 | **01. Besoin Client** | ✅ **Terminée** le 01/09/2026, livrable attaché et publié |
-| **02. Problème Métier** | 🔓 **Débloquée le 08/09. À écrire.** |
+| **02. Problème Métier** | ✅ **Écrit le 08/09.** Livrable prêt — pas encore coché « Terminée » dans le système |
 | 03 à 13 | non ouvertes |
 
 **Ce qui bloquait l'étape 2 n'existe plus.** Elle attendait le dépouillement du
@@ -152,8 +152,13 @@ s'était concentré une semaine durant.
 
 ## 6. Chantiers ouverts
 
-**Écrire `02.Probleme_Metier.md`.** C'est la seule chose qui compte pour la
-méthode. Tout le reste peut attendre.
+**Étape 2 : le fichier est écrit, l'étape n'est pas cochée.**
+`02.Probleme_Metier.md` existe depuis le 08/09. Le clic « Terminée » dans le
+système reste à faire — après relecture, jamais avant. Une étape terminée est
+définitive (**F-02**), et le journal enregistre l'heure du clic.
+
+**Puis `03.Objets_Metier.md`** — nommer les objets que le problème met en jeu,
+sans choisir encore ce qui les manipulera.
 
 **Deux dépouillements jamais faits** : la vidéo du 04/09 (16h40) et celle du
 05/09 (19h00, hors test). Ni l'un ni l'autre ne bloque quoi que ce soit.
