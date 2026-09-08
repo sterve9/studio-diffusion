@@ -24,12 +24,12 @@ laquelle on a le droit de l'ouvrir**.
 
 ## Ce dossier n'est pas un fourre-tout
 
-⚠️ **Les artefacts de tournage n'ont rien a faire ici** — memo, narration,
-schemas, miniature. Ils n'attendent aucune autorisation, ils ont deja servi.
-Ils vivent dans .
+⚠️ **Les artefacts de tournage n'ont rien à faire ici** — mémo de tournage,
+narration, schémas, miniature. Ils n'attendent aucune autorisation : ils ont
+déjà servi. Leur place est dans `docs/productions/`.
 
-La confusion a eu lieu les 06 et 07/09/2026 : six fichiers de production du
-tuto 01 avaient atterri ici. Deplaces le 08/09.
+La confusion a eu lieu les 06 et 07/09/2026 — six fichiers de production du
+tuto 01 avaient atterri ici. Déplacés le 08/09.
 
 ## Index
 
