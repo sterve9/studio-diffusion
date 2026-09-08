@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Téléprompteur — studio-diffusion</title>
+<style>
+  /* ── J1 · bloc B5 — Restitution au tournage ────────────────────────
+     Trois vues :
+       1. ÉDITEUR   on colle le script
+       2. VOIX OFF  le texte seul, plein écran — pas de caméra
+       3. TOURNAGE  la caméra en fond, le texte PAR-DESSUS l'objectif
+
+     ⚠️ La vue TOURNAGE exige HTTPS. `getUserMedia` est refusé sur un
+     fichier ouvert depuis le disque : c'est une règle des navigateurs,
+     pas un réglage.                                                    */
+
+  :root{
+    --fond:#0b0f0d; --texte:#f4f6f5; --vert:#25D366; --ambre:#ffc23d;
+    --gris:#8a9a91; --panneau:#141a17; --taille:5.2vh;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%;overflow:hidden}
+  body{
+    background:var(--fond);color:var(--texte);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    display:flex;flex-direction:column;height:100dvh;
+  }
+  .vue{flex:1;display:none;flex-direction:column;min-height:0;position:relative}
+  .vue.on{display:flex}
+
+  /* ── 1 · ÉDITEUR ─────────────────────────────────────────────── */
+  #editeur{padding:16px;gap:12px}
+  #editeur h1{font-size:19px}
+  #editeur p{font-size:13px;color:var(--gris);line-height:1.5}
+  #editeur code{color:var(--vert)}
+  textarea{
+    flex:1;width:100%;background:var(--panneau);color:var(--texte);
+    border:2px solid #222c27;border-radius:10px;padding:14px;
+    font-family:ui-monospace,Menlo,monospace;font-size:15px;line-height:1.55;
+    resize:none;outline:none;
+  }
+  textarea:focus{border-color:var(--vert)}
+  .duo{display:flex;gap:10px}
+  .duo button{
+    flex:1;border:none;border-radius:10px;padding:18px 8px;
+    font-size:16px;font-weight:800;letter-spacing:.3px;
+  }
+  #goVoix{background:#1e2621;color:var(--texte)}
+  #goCam{background:var(--vert);color:#04150c}
+  #alerte{
+    font-size:13px;color:var(--ambre);line-height:1.5;
+    border-left:3px solid var(--ambre);padding-left:10px;display:none;
+  }
+
+  /* ── 2 · VOIX OFF ────────────────────────────────────────────── */
+  #scene{flex:1;overflow:hidden;position:relative;min-height:0;cursor:pointer}
+  #piste{padding:60vh 5vw}
+  #repere{position:absolute;left:0;right:0;top:34%;height:2px;background:var(--vert);opacity:.28}
+
+  .dit{font-size:var(--taille);line-height:1.35;font-weight:700;margin:0 0 .55em}
+  .titre{
+    font-size:calc(var(--taille)*.52);color:var(--vert);font-weight:800;
+    letter-spacing:.14em;text-transform:uppercase;margin:1.6em 0 .5em;
+  }
+  /* Ce qu'on VÉRIFIE et ce qui PIÈGE ne se prononcent pas. */
+  .note{
+    font-size:calc(var(--taille)*.34);line-height:1.45;color:var(--gris);
+    border-left:4px solid var(--gris);padding:.2em 0 .2em .7em;
+    margin:0 0 .8em 8%;font-weight:500;
+  }
+  .note.piege{color:var(--ambre);border-left-color:var(--ambre)}
+  .note.controle{color:var(--vert);border-left-color:var(--vert)}
+
+  /* ── 3 · TOURNAGE ────────────────────────────────────────────── */
+  #cam{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transform:scaleX(-1);            /* miroir à l'ÉCRAN seulement.
+                                        Le fichier enregistré, lui, n'est
+                                        pas inversé. */
+    background:#000;
+  }
+  /* Le texte se pose dans le tiers HAUT : c'est là qu'est l'objectif
+     frontal d'un téléphone. Le regard ne le quitte jamais. */
+  #calque{
+    position:absolute;left:0;right:0;top:0;height:46%;
+    overflow:hidden;padding:0 5vw;
+    background:linear-gradient(#000c 0%,#000a 70%,#0000 100%);
+    cursor:pointer;
+  }
+  #pisteC{padding-top:8vh}
+  #calque .dit{font-size:calc(var(--taille)*.92);text-shadow:0 2px 8px #000}
+  #calque .note{font-size:calc(var(--taille)*.30)}
+  #calque .titre{display:none}      /* le titre de section est dans la barre */
+
+  #decompte{
+    position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+    font-size:26vh;font-weight:900;color:#fff;text-shadow:0 4px 24px #000;
+  }
+  #pastille{
+    position:absolute;top:12px;right:14px;display:none;align-items:center;gap:8px;
+    background:#000a;padding:7px 13px;border-radius:999px;font-size:14px;font-weight:800;
+  }
+  #pastille i{width:11px;height:11px;border-radius:50%;background:#ff3b30;display:block;
+    animation:bat 1s infinite}
+  @keyframes bat{50%{opacity:.25}}
+
+  #barreC{
+    position:absolute;left:0;right:0;bottom:0;padding:10px 10px calc(14px + env(safe-area-inset-bottom));
+    background:linear-gradient(#0000,#000c 32%);display:flex;flex-direction:column;gap:9px;
+  }
+  #ligneSect{display:flex;align-items:center;gap:8px}
+  #sectNom{flex:1;text-align:center;font-size:14px;font-weight:700;color:var(--vert);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #ligneCmd{display:flex;align-items:center;gap:8px}
+  #barreC button{
+    background:#1e2621e0;color:var(--texte);border:none;border-radius:9px;
+    padding:13px 0;font-size:15px;font-weight:700;flex:1;min-width:0;
+  }
+  #barreC button.actif{background:var(--vert);color:#04150c}
+  #rec{
+    flex:0 0 76px !important;height:76px;border-radius:50% !important;
+    background:#ff3b30 !important;color:#fff !important;font-size:15px !important;
+  }
+  #rec.stop{background:#fff !important;color:#111 !important}
+  #vitC{flex:0 0 46px;text-align:center;font-size:13px;color:var(--gris)}
+
+  /* revue de la prise */
+  #revue{
+    position:absolute;inset:0;background:#000e;display:none;
+    flex-direction:column;padding:14px;gap:12px;z-index:5;
+  }
+  #apercu{flex:1;width:100%;background:#000;border-radius:10px;min-height:0}
+  #revue .duo button{padding:16px 8px;font-size:15px}
+  #refaire{background:#1e2621;color:var(--texte)}
+  #garder{background:var(--vert);color:#04150c}
+  #recup{
+    position:absolute;left:14px;right:14px;top:14px;z-index:6;display:none;
+    background:var(--ambre);color:#1a1200;border-radius:10px;padding:12px;
+    font-size:14px;font-weight:700;line-height:1.4;
+  }
+  #recup button{margin-top:8px;width:100%;padding:11px;border:none;border-radius:8px;
+    background:#1a1200;color:var(--ambre);font-weight:800}
+</style>
+</head>
+<body>
+
+<!-- ══ 1 · ÉDITEUR ═══════════════════════════════════════════════ -->
+<section id="editeur" class="vue on">
+  <h1>Téléprompteur</h1>
+  <p>
+    Une ligne = une phrase à dire.
+    <code>#</code> ouvre une section — <b>et une section = une prise</b>.<br>
+    <code>!</code> un piège · <code>&gt;</code> un point de contrôle — <b>ne se lisent pas</b>.
+  </p>
+  <textarea id="script" spellcheck="false" placeholder="Colle ton script ici…"></textarea>
+  <div id="alerte"></div>
+  <div class="duo">
+    <button id="goVoix">VOIX OFF</button>
+    <button id="goCam">FACE CAMÉRA</button>
+  </div>
+</section>
+
+<!-- ══ 2 · VOIX OFF ══════════════════════════════════════════════ -->
+<section id="prompteur" class="vue">
+  <div id="scene"><div id="repere"></div><div id="piste"></div></div>
+  <div id="barre" style="display:flex;align-items:center;gap:8px;padding:10px 10px 16px;background:var(--panneau);border-top:2px solid #222c27">
+    <button id="moinsV" style="background:#1e2621;color:var(--texte);border:none;border-radius:9px;padding:14px 0;font-size:15px;font-weight:700;flex:1">− vite</button>
+    <span id="vitesseVal" style="flex:0 0 46px;text-align:center;font-size:14px;color:var(--gris)">1.0</span>
+    <button id="plusV" style="background:#1e2621;color:var(--texte);border:none;border-radius:9px;padding:14px 0;font-size:15px;font-weight:700;flex:1">+ vite</button>
+    <button id="lecture" style="background:#1e2621;color:var(--texte);border:none;border-radius:9px;padding:14px 0;font-size:17px;font-weight:700;flex:2.4">LIRE</button>
+    <button id="moinsT" style="background:#1e2621;color:var(--texte);border:none;border-radius:9px;padding:14px 0;font-size:15px;font-weight:700;flex:1">a</button>
+    <button id="plusT" style="background:#1e2621;color:var(--texte);border:none;border-radius:9px;padding:14px 0;font-size:15px;font-weight:700;flex:1">A</button>
+    <button id="retour" style="background:#1e2621;color:var(--texte);border:none;border-radius:9px;padding:14px 0;font-size:15px;font-weight:700;flex:1">✕</button>
+  </div>
+</section>
+
+<!-- ══ 3 · TOURNAGE ══════════════════════════════════════════════ -->
+<section id="tournage" class="vue">
+  <video id="cam" autoplay muted playsinline></video>
+  <div id="calque"><div id="pisteC"></div></div>
+  <div id="pastille"><i></i><span id="chrono">0:00</span></div>
+  <div id="decompte"></div>
+
+  <div id="recup">
+    Une prise interrompue a été retrouvée.
+    <button id="recupOui">La récupérer</button>
+  </div>
+
+  <div id="barreC">
+    <div id="ligneSect">
+      <button id="sectPrec" style="flex:0 0 54px">‹</button>
+      <span id="sectNom">—</span>
+      <button id="sectSuiv" style="flex:0 0 54px">›</button>
+    </div>
+    <div id="ligneCmd">
+      <button id="moinsVC">−</button>
+      <span id="vitC">1.0</span>
+      <button id="plusVC">+</button>
+      <button id="rec">REC</button>
+      <button id="moinsTC">a</button>
+      <button id="plusTC">A</button>
+      <button id="retourC">✕</button>
+    </div>
+  </div>
+
+  <div id="revue">
+    <video id="apercu" controls playsinline></video>
+    <div class="duo">
+      <button id="refaire">REFAIRE</button>
+      <button id="garder">TÉLÉCHARGER</button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+
+  /* ═══ Le script : découpage en sections ═══════════════════════ */
+  // ⚠️ L'exemple est un CONTENU, pas un placeholder. Première version :
+  // il était en placeholder — du texte gris qui ressemble à du contenu
+  // sans en être. Le bouton refusait de démarrer sur une zone vide et
+  // rien ne se passait. Corrigé le 08/09/2026, au premier essai réel.
+  var EXEMPLE = [
+    "# L'ACCROCHE", '',
+    'Voici comment colorer automatiquement chaque ligne de ton CRM selon le statut du prospect.', '',
+    'Pas de code, pas d’extension.', '',
+    'Et surtout, tu vas comprendre le caractère qui rend tout ça évident.', '',
+    '> la ligne blanche passe au vert, puis le bleu au rouge', '',
+    '# LE DOLLAR', '',
+    'Je tape : égal, dollar, C, 2, égal, guillemets, Client.', '',
+    '! plan serré sur la formule, vitesse 1x', '',
+    "Le dollar devant le C, c’est tout le secret.", '',
+    'Il dit : quelle que soit la case où tu te trouves, regarde toujours la colonne du statut.', '',
+    '> la ligne 3 entière passe au vert, de A jusqu’à G'
+  ].join('\n');
+
+  var garde = null;
+  try { garde = localStorage.getItem('teleprompteur-script'); } catch(e){}
+  $('script').value = (garde && garde.trim()) ? garde : EXEMPLE;
+
+  function decouper(texte){
+    var sections = [], cur = {titre:'Sans titre', lignes:[]};
+    texte.split('\n').forEach(function(brut){
+      var l = brut.trim();
+      if (!l) return;
+      if (l.charAt(0) === '#') {
+        if (cur.lignes.length) sections.push(cur);
+        cur = {titre:l.replace(/^#+\s*/,''), lignes:[]};
+      } else cur.lignes.push(l);
+    });
+    if (cur.lignes.length) sections.push(cur);
+    return sections.length ? sections : [{titre:'Script', lignes:[]}];
+  }
+
+  function ligneEl(l){
+    var el = document.createElement('div');
+    if (l.charAt(0) === '!' || l.indexOf('⚠') === 0) {
+      el.className = 'note piege'; el.textContent = l.replace(/^[!⚠️\s]+/,'');
+    } else if (l.charAt(0) === '>' || l.indexOf('✅') === 0 || l.indexOf('✓') === 0) {
+      el.className = 'note controle'; el.textContent = l.replace(/^[>✅✓\s]+/,'');
+    } else {
+      el.className = 'dit'; el.textContent = l;
+    }
+    return el;
+  }
+
+  /* ═══ Défilement partagé par les deux vues ════════════════════ */
+  function Defileur(piste, boite, ancre){
+    var y = 0, v = 1.0, actif = false, t0 = null, self = this;
+    function place(){ piste.style.transform = 'translateY(' + (-y) + 'px)'; }
+    function boucle(t){
+      if (!actif) { t0 = null; return; }
+      if (t0 === null) t0 = t;
+      y += ((t - t0)/1000) * 34 * v; t0 = t;
+      var max = Math.max(0, piste.scrollHeight - boite.clientHeight * ancre);
+      if (y > max) { y = max; self.jouer(false); }
+      place(); requestAnimationFrame(boucle);
+    }
+    this.remettre = function(){ y = 0; place(); };
+    this.jouer = function(b){
+      actif = (b === undefined) ? !actif : b;
+      if (actif) requestAnimationFrame(boucle);
+      if (self.onEtat) self.onEtat(actif);
+      return actif;
+    };
+    this.vitesse = function(d){ v = Math.min(6, Math.max(0.2, v + d)); return v; };
+  }
+
+  /* ═══ Vue 2 · VOIX OFF ════════════════════════════════════════ */
+  var dVoix = new Defileur($('piste'), $('scene'), 0.34);
+  dVoix.onEtat = function(a){
+    $('lecture').textContent = a ? 'PAUSE' : 'LIRE';
+    $('lecture').style.background = a ? 'var(--vert)' : '#1e2621';
+    $('lecture').style.color = a ? '#04150c' : 'var(--texte)';
+  };
+  $('scene').onclick = function(){ dVoix.jouer(); };
+  $('lecture').onclick = function(e){ e.stopPropagation(); dVoix.jouer(); };
+  $('plusV').onclick  = function(){ $('vitesseVal').textContent = dVoix.vitesse(+0.2).toFixed(1); };
+  $('moinsV').onclick = function(){ $('vitesseVal').textContent = dVoix.vitesse(-0.2).toFixed(1); };
+
+  var taille = 5.2;
+  function majTaille(){ document.documentElement.style.setProperty('--taille', taille + 'vh'); }
+  function plusT(){ taille = Math.min(16, taille + 0.6); majTaille(); }
+  function moinsT(){ taille = Math.max(2.5, taille - 0.6); majTaille(); }
+  $('plusT').onclick = plusT; $('moinsT').onclick = moinsT;
+  $('plusTC').onclick = plusT; $('moinsTC').onclick = moinsT;
+
+  /* ═══ Navigation entre les vues ═══════════════════════════════ */
+  function voir(id){
+    ['editeur','prompteur','tournage'].forEach(function(v){
+      $(v).className = 'vue' + (v === id ? ' on' : '');
+    });
+  }
+  $('retour').onclick  = function(){ dVoix.jouer(false); voir('editeur'); };
+  $('retourC').onclick = function(){ arreterCam(); voir('editeur'); };
+
+  function sauver(){
+    try { localStorage.setItem('teleprompteur-script', $('script').value); } catch(e){}
+  }
+
+  $('goVoix').onclick = function(){
+    var t = $('script').value; if (!t.trim()) return;
+    sauver();
+    $('piste').innerHTML = '';
+    decouper(t).forEach(function(s){
+      var h = document.createElement('div'); h.className = 'titre'; h.textContent = s.titre;
+      $('piste').appendChild(h);
+      s.lignes.forEach(function(l){ $('piste').appendChild(ligneEl(l)); });
+    });
+    dVoix.remettre(); dVoix.jouer(false); voir('prompteur');
+  };
+
+  /* ═══ Vue 3 · TOURNAGE ════════════════════════════════════════ */
+  var sections = [], iSect = 0, flux = null, enregistreur = null;
+  var dCam = new Defileur($('pisteC'), $('calque'), 0.30);
+  var chrono = null, debut = 0;
+
+  function afficherSection(){
+    var s = sections[iSect] || {titre:'—', lignes:[]};
+    $('sectNom').textContent = (iSect+1) + '/' + sections.length + ' · ' + s.titre;
+    $('pisteC').innerHTML = '';
+    s.lignes.forEach(function(l){ $('pisteC').appendChild(ligneEl(l)); });
+    dCam.remettre(); dCam.jouer(false);
+  }
+  $('sectPrec').onclick = function(){ if (iSect > 0) { iSect--; afficherSection(); } };
+  $('sectSuiv').onclick = function(){ if (iSect < sections.length-1) { iSect++; afficherSection(); } };
+  $('calque').onclick = function(){ dCam.jouer(); };
+  $('plusVC').onclick  = function(){ $('vitC').textContent = dCam.vitesse(+0.2).toFixed(1); };
+  $('moinsVC').onclick = function(){ $('vitC').textContent = dCam.vitesse(-0.2).toFixed(1); };
+
+  function arreterCam(){
+    dCam.jouer(false);
+    if (enregistreur && enregistreur.state !== 'inactive') enregistreur.stop();
+    if (flux) { flux.getTracks().forEach(function(t){ t.stop(); }); flux = null; }
+  }
+
+  $('goCam').onclick = function(){
+    var t = $('script').value; if (!t.trim()) return;
+    sauver();
+    sections = decouper(t); iSect = 0;
+
+    if (!window.isSecureContext) {
+      montrerAlerte("La caméra exige HTTPS. Cette page est ouverte depuis un fichier local — publie-la sur GitHub Pages, puis rouvre-la depuis son adresse https://");
+      return;
+    }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      montrerAlerte("Ce navigateur ne donne pas accès à la caméra.");
+      return;
+    }
+
+    navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'user', width:{ideal:1080}, height:{ideal:1920} },
+      audio: true
+    }).then(function(f){
+      flux = f; $('cam').srcObject = f;
+      afficherSection(); voir('tournage'); verifierRecup();
+    }).catch(function(err){
+      montrerAlerte("Accès refusé ou impossible : " + err.name + ". Sur iPhone, autorise la caméra et le micro dans Réglages → Safari.");
+    });
+  };
+
+  function montrerAlerte(m){
+    $('alerte').textContent = m; $('alerte').style.display = 'block';
+  }
+
+  /* ── Base locale : les morceaux sont vidés hors mémoire ────────
+     C'est l'attaque directe de la cause des plantages sur iPhone :
+     MediaRecorder accumule tout en mémoire si on ne découpe pas.
+     Bénéfice second : si la page tombe, la prise est récupérable. */
+  var DB = null;
+  function base(){
+    return new Promise(function(ok, ko){
+      if (DB) return ok(DB);
+      var r = indexedDB.open('teleprompteur', 1);
+      r.onupgradeneeded = function(){ r.result.createObjectStore('morceaux', {autoIncrement:true}); };
+      r.onsuccess = function(){ DB = r.result; ok(DB); };
+      r.onerror = function(){ ko(r.error); };
+    });
+  }
+  function tx(mode){ return base().then(function(d){ return d.transaction('morceaux', mode).objectStore('morceaux'); }); }
+  function vider(){ return tx('readwrite').then(function(s){ s.clear(); }); }
+  function ajouter(blob){ return tx('readwrite').then(function(s){ s.add(blob); }); }
+  function tout(){
+    return tx('readonly').then(function(s){
+      return new Promise(function(ok){ var q = s.getAll(); q.onsuccess = function(){ ok(q.result || []); }; });
+    });
+  }
+
+  function typeSupporte(){
+    var l = ['video/mp4;codecs=h264,aac','video/mp4','video/webm;codecs=vp9,opus','video/webm'];
+    for (var i=0;i<l.length;i++) if (window.MediaRecorder && MediaRecorder.isTypeSupported(l[i])) return l[i];
+    return '';
+  }
+
+  function assembler(){
+    return tout().then(function(m){
+      if (!m.length) return null;
+      var mime = (m[0].type || 'video/mp4').split(';')[0];
+      return new Blob(m, {type: mime});
+    });
+  }
+
+  function verifierRecup(){
+    tout().then(function(m){ if (m.length) $('recup').style.display = 'block'; });
+  }
+  $('recupOui').onclick = function(){
+    $('recup').style.display = 'none';
+    assembler().then(function(b){ if (b) montrerRevue(b); });
+  };
+
+  function montrerRevue(blob){
+    $('apercu').src = URL.createObjectURL(blob);
+    $('revue').dataset.mime = blob.type;
+    $('revue').style.display = 'flex';
+  }
+  $('refaire').onclick = function(){
+    $('revue').style.display = 'none'; $('apercu').src = '';
+    vider(); dCam.remettre();
+  };
+  $('garder').onclick = function(){
+    assembler().then(function(b){
+      if (!b) return;
+      var ext = (b.type.indexOf('mp4') >= 0) ? 'mp4' : 'webm';
+      var nom = 'prise-' + (iSect+1) + '-' + Date.now() + '.' + ext;
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(b); a.download = nom;
+      document.body.appendChild(a); a.click(); a.remove();
+      $('revue').style.display = 'none'; $('apercu').src = '';
+    });
+  };
+
+  function majChrono(){
+    var s = Math.floor((Date.now() - debut)/1000);
+    $('chrono').textContent = Math.floor(s/60) + ':' + ('0' + (s%60)).slice(-2);
+  }
+
+  function lancerEnregistrement(){
+    var mime = typeSupporte();
+    try {
+      enregistreur = mime ? new MediaRecorder(flux, {mimeType: mime}) : new MediaRecorder(flux);
+    } catch(e) { alert("Enregistrement impossible sur ce navigateur : " + e.message); return; }
+
+    enregistreur.ondataavailable = function(e){ if (e.data && e.data.size) ajouter(e.data); };
+    enregistreur.onstop = function(){
+      clearInterval(chrono); $('pastille').style.display = 'none';
+      $('rec').textContent = 'REC'; $('rec').className = '';
+      dCam.jouer(false);
+      assembler().then(function(b){ if (b) montrerRevue(b); });
+    };
+
+    vider().then(function(){
+      enregistreur.start(1000);      // ⚠️ un morceau par seconde, jamais un bloc
+      debut = Date.now(); majChrono();
+      chrono = setInterval(majChrono, 500);
+      $('pastille').style.display = 'flex';
+      $('rec').textContent = 'STOP'; $('rec').className = 'stop';
+      dCam.remettre(); dCam.jouer(true);
+    });
+  }
+
+  $('rec').onclick = function(){
+    if (enregistreur && enregistreur.state === 'recording') { enregistreur.stop(); return; }
+    // décompte : le temps d'aller te placer et de reprendre ton souffle
+    var n = 3;
+    $('decompte').style.display = 'flex'; $('decompte').textContent = n;
+    var t = setInterval(function(){
+      n--;
+      if (n > 0) { $('decompte').textContent = n; return; }
+      clearInterval(t); $('decompte').style.display = 'none';
+      lancerEnregistrement();
+    }, 1000);
+  };
+
+  /* clavier, pour l'écran d'ordinateur */
+  document.addEventListener('keydown', function(e){
+    if ($('prompteur').classList.contains('on')) {
+      if (e.code === 'Space')     { e.preventDefault(); dVoix.jouer(); }
+      if (e.code === 'ArrowUp')   { e.preventDefault(); $('plusV').onclick(); }
+      if (e.code === 'ArrowDown') { e.preventDefault(); $('moinsV').onclick(); }
+    }
+    if ($('tournage').classList.contains('on')) {
+      if (e.code === 'Space')     { e.preventDefault(); dCam.jouer(); }
+    }
+  });
+})();
+</script>
+</body>
+</html>
