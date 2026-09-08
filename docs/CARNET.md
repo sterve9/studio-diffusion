@@ -439,3 +439,57 @@ les hashtags, la couverture.**
 **Transposable aux 13 étapes** : un critère écrit dans un document n'est pas
 un critère appliqué. C'est le même écart que **F-10** — une étape peut être
 marquée « Terminée » sans aucun livrable attaché.
+
+
+## N-12 → étape 5 — L'état « Périmée », écarté du modèle et gardé ici
+
+**Écarté le 08/09/2026**, en écrivant le cycle de vie de la Preuve.
+
+Un cinquième état avait été envisagé : **Périmée** — *une preuve publiée qui
+ne décrit plus la réalité, parce que le système qu'elle décrit a changé.*
+
+### Le cas réel, il n'est pas théorique
+
+Le **04/09/2026**, douze correctifs sont appliqués au système
+`crm-prospection-ingrid` : le ciblage qui ramenait des boulangeries de
+Dordogne pour une recherche à Lyon, les colonnes email jamais renseignées, la
+règle de priorité qui classait tout en haute.
+
+**La documentation du dépôt n'a pas bougé.** Elle décrivait toujours la
+version d'avant.
+
+Le **05/09**, la vidéo du jour s'apprêtait à annoncer : *« j'ai documenté tout
+le système pour que tu puisses le reproduire »*. Quelqu'un partant de ce dépôt
+ce jour-là aurait rebâti la version cassée.
+
+La preuve était en ligne. Elle disait toujours la même chose. Elle était
+devenue fausse.
+
+### Pourquoi il est écarté
+
+1. **Le métier de la diffusion ne peut pas le détecter.** Rien dans
+   l'acheminement d'une preuve vers un canal ne sait qu'un système documenté
+   ailleurs a changé.
+2. **Il appartient au métier de la méthode**, celui de la fraîcheur
+   documentaire — pas à celui de la diffusion.
+3. **Un état qu'on ne peut ni observer ni quitter est du décor.** Le modèle
+   n'aurait rien pu en faire.
+
+### Ce qui aggrave le problème, et pourquoi il faut le garder écrit
+
+⚠️ **Une preuve publiée ne se corrige pas.** Ni sur le système de méthode
+(**F-01** : ni titre, ni résumé), ni dans une vidéo déjà en ligne.
+
+Une preuve peut donc devenir un mensonge sans que personne ne fasse rien, et
+sans qu'aucun mécanisme ne le signale.
+
+### Où c'est déjà traité
+
+`crm-prospection-ingrid/docs/methode/13.Documentation.md`, règle **7.4** :
+
+> **Ne pas promettre publiquement qu'un système est reproductible tant que sa
+> documentation décrit une version antérieure.**
+
+C'est la parade, et elle est humaine. **Si un besoin réel réclame un jour de
+la rendre mécanique, cette note est le point de départ** — et l'état
+`Périmée` reviendra dans le modèle avec un moyen de le détecter, pas avant.
