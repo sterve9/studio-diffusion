@@ -1,0 +1,94 @@
+<title>La plage — pourquoi A2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&display=swap');
+  :root{
+    --papier:#f2efe7; --encre:#07120c; --vert:#25D366; --vertfonce:#128C4B;
+    --gris:#9aa8a0; --grisclair:#d5dbd7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    width:1920px;height:1080px;background:var(--papier);color:var(--encre);
+    font-family:'JetBrains Mono',monospace;overflow:hidden;
+    display:flex;flex-direction:column;padding:44px 52px 38px;
+  }
+  h1{font-family:'Anton',sans-serif;font-size:58px;letter-spacing:-.5px;line-height:1}
+  .sous{font-size:20px;letter-spacing:2px;color:var(--vertfonce);font-weight:700;margin-top:10px}
+  .trio{display:flex;gap:34px;flex:1;margin-top:28px}
+  .p{flex:1;display:flex;flex-direction:column}
+  .cap{font-family:'Anton',sans-serif;font-size:33px;line-height:1.1;margin-bottom:14px;
+       display:flex;align-items:center;gap:12px}
+  .mark{font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;
+        width:46px;height:46px;flex:0 0 46px;display:flex;align-items:center;
+        justify-content:center;border:3px solid var(--encre)}
+  .ko .mark{color:var(--encre);background:var(--grisclair)}
+  .ok .mark{color:var(--encre);background:var(--vert)}
+  .ko .cap{color:var(--gris)}
+  .ok .cap{color:var(--vertfonce)}
+  .grille{border:3px solid var(--encre);background:#fff}
+  .r{display:flex;border-bottom:2px solid var(--encre)}
+  .r:last-child{border-bottom:none}
+  .r.tete{background:var(--encre);color:var(--papier)}
+  .c{flex:1;padding:11px 2px;text-align:center;font-size:15px;font-weight:700;
+     border-right:2px solid var(--encre);white-space:nowrap;overflow:hidden}
+  .c:last-child{border-right:none}
+  .n{flex:0 0 40px;background:var(--encre);color:var(--papier);font-size:16px}
+  .r.entete .c{font-size:13px;letter-spacing:-.2px}
+  .plein{background:var(--grisclair)}
+  .pleinv{background:var(--vert)}
+  .h{height:44px}
+  .verdict{margin-top:16px;font-size:21px;line-height:1.4;font-weight:700}
+  .ko .verdict{color:var(--gris)}
+  .flag{margin-top:8px;font-size:16px;color:var(--vertfonce);font-weight:700}
+  .bas{margin-top:26px;border-top:3px solid var(--encre);padding-top:18px;
+       font-size:27px;line-height:1.5}
+  .bas b{font-family:'Anton',sans-serif;font-size:31px}
+</style>
+
+<h1>LA PLAGE — POURQUOI A2, ET PAS AUTRE CHOSE</h1>
+<div class="sous">LA MÊME RÈGLE, TROIS SÉLECTIONS POSSIBLES. UNE SEULE DONNE CE QU'ON VEUT.</div>
+
+<div class="trio">
+
+  <div class="p ko">
+    <div class="cap"><span class="mark">✗</span>LA COLONNE C</div>
+    <div class="grille">
+      <div class="r tete"><div class="c n"></div><div class="c">A</div><div class="c">B</div><div class="c">C</div><div class="c">D</div><div class="c">E</div><div class="c">F</div></div>
+      <div class="r entete"><div class="c n">1</div><div class="c">Nom</div><div class="c">Contact</div><div class="c">Statut</div><div class="c">Priorité</div><div class="c">Relance</div><div class="c">Notes</div></div>
+      <div class="r h"><div class="c n">2</div><div class="c"></div><div class="c"></div><div class="c plein"></div><div class="c"></div><div class="c"></div><div class="c"></div></div>
+      <div class="r h"><div class="c n">3</div><div class="c"></div><div class="c"></div><div class="c plein"></div><div class="c"></div><div class="c"></div><div class="c"></div></div>
+      <div class="r h"><div class="c n">4</div><div class="c"></div><div class="c"></div><div class="c plein"></div><div class="c"></div><div class="c"></div><div class="c"></div></div>
+    </div>
+    <div class="verdict">Seule la pastille du statut se colore.</div>
+  </div>
+
+  <div class="p ko">
+    <div class="cap"><span class="mark">✗</span>TOUTE LA FEUILLE</div>
+    <div class="grille">
+      <div class="r tete"><div class="c n"></div><div class="c">A</div><div class="c">B</div><div class="c">C</div><div class="c">D</div><div class="c">E</div><div class="c">F</div></div>
+      <div class="r entete"><div class="c n">1</div><div class="c plein">Nom</div><div class="c plein">Contact</div><div class="c plein">Statut</div><div class="c plein">Priorité</div><div class="c plein">Relance</div><div class="c plein">Notes</div></div>
+      <div class="r h"><div class="c n">2</div><div class="c plein"></div><div class="c plein"></div><div class="c plein"></div><div class="c plein"></div><div class="c plein"></div><div class="c plein"></div></div>
+      <div class="r h"><div class="c n">3</div><div class="c plein"></div><div class="c plein"></div><div class="c plein"></div><div class="c plein"></div><div class="c plein"></div><div class="c plein"></div></div>
+      <div class="r h"><div class="c n">4</div><div class="c plein"></div><div class="c plein"></div><div class="c plein"></div><div class="c plein"></div><div class="c plein"></div><div class="c plein"></div></div>
+    </div>
+    <div class="verdict">L'en-tête est interrogé lui aussi.</div>
+  </div>
+
+  <div class="p ok">
+    <div class="cap"><span class="mark">✓</span>A2 &rarr; DERNIÈRE COLONNE</div>
+    <div class="grille">
+      <div class="r tete"><div class="c n"></div><div class="c">A</div><div class="c">B</div><div class="c">C</div><div class="c">D</div><div class="c">E</div><div class="c">F</div></div>
+      <div class="r entete"><div class="c n">1</div><div class="c">Nom</div><div class="c">Contact</div><div class="c">Statut</div><div class="c">Priorité</div><div class="c">Relance</div><div class="c">Notes</div></div>
+      <div class="r h"><div class="c n">2</div><div class="c pleinv"></div><div class="c pleinv"></div><div class="c pleinv"></div><div class="c pleinv"></div><div class="c pleinv"></div><div class="c pleinv"></div></div>
+      <div class="r h"><div class="c n">3</div><div class="c pleinv"></div><div class="c pleinv"></div><div class="c pleinv"></div><div class="c pleinv"></div><div class="c pleinv"></div><div class="c pleinv"></div></div>
+      <div class="r h"><div class="c n">4</div><div class="c pleinv"></div><div class="c pleinv"></div><div class="c pleinv"></div><div class="c pleinv"></div><div class="c pleinv"></div><div class="c pleinv"></div></div>
+    </div>
+    <div class="verdict">La ligne entière. Sans l'en-tête.</div>
+    <div class="flag">↑ l'en-tête reste intact</div>
+  </div>
+
+</div>
+
+<div class="bas">
+  <b>LA PLAGE COMMENCE EN LIGNE 2 &rarr; LA FORMULE DIT $C2.</b>
+  Si elle commençait en ligne 5, ce serait <b>$C5</b>. C'est mécanique, pas une convention.
+</div>

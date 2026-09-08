@@ -22,6 +22,15 @@ laquelle on a le droit de l'ouvrir**.
 3. Une ressource ne peut jamais faire réécrire une étape déjà écrite.
    Le besoin est daté ; il est antérieur.
 
+## Ce dossier n'est pas un fourre-tout
+
+⚠️ **Les artefacts de tournage n'ont rien a faire ici** — memo, narration,
+schemas, miniature. Ils n'attendent aucune autorisation, ils ont deja servi.
+Ils vivent dans .
+
+La confusion a eu lieu les 06 et 07/09/2026 : six fichiers de production du
+tuto 01 avaient atterri ici. Deplaces le 08/09.
+
 ## Index
 
 | Date | Ressource | Nature | Débloquée à partir de |

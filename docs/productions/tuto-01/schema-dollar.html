@@ -1,0 +1,123 @@
+<title>Le dollar — ce qui se passe vraiment</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&display=swap');
+  :root{
+    --papier:#f2efe7; --encre:#07120c; --vert:#25D366; --vertfonce:#128C4B;
+    --gris:#8a9a91; --ambre:#ffc23d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    width:1920px;height:1080px;background:var(--papier);color:var(--encre);
+    font-family:'JetBrains Mono',monospace;overflow:hidden;
+    display:flex;flex-direction:column;padding:44px 56px 40px;
+  }
+  h1{font-family:'Anton',sans-serif;font-size:60px;letter-spacing:-.5px;line-height:1}
+  .sous{font-size:21px;letter-spacing:2px;color:var(--vertfonce);font-weight:700;margin-top:10px}
+  .duo{display:flex;gap:44px;flex:1;margin-top:26px}
+  .panneau{flex:1;display:flex;flex-direction:column}
+  .cap{font-family:'Anton',sans-serif;font-size:40px;letter-spacing:0;margin-bottom:4px}
+  .cap.ok{color:var(--vertfonce)}
+  .cap.ko{color:var(--gris)}
+  .form{font-size:30px;font-weight:700;margin-bottom:18px}
+  .form b{color:var(--vert);font-size:38px}
+  .grille{border:3px solid var(--encre);background:#fff}
+  .rang{display:flex;border-bottom:2px solid var(--encre)}
+  .rang:last-child{border-bottom:none}
+  .rang.tete{background:var(--encre);color:var(--papier)}
+  .c{flex:1;padding:13px 0;text-align:center;font-size:24px;font-weight:700;
+     border-right:2px solid var(--encre)}
+  .c:last-child{border-right:none}
+  .num{flex:0 0 54px;background:var(--encre);color:var(--papier);font-size:22px}
+  .rang.tete .c{font-size:22px;padding:10px 0}
+  .cible{background:var(--vert)}
+  .neuf{background:#fff5d6}
+  .note{margin-top:20px;font-size:24px;line-height:1.45}
+  .note strong{background:var(--vert);padding:2px 8px}
+  .note em{font-style:normal;background:var(--ambre);padding:2px 8px}
+  .bas{margin-top:24px;border-top:3px solid var(--encre);padding-top:18px;
+       font-size:27px;line-height:1.5}
+  .bas b{font-family:'Anton',sans-serif;font-size:31px;letter-spacing:.3px}
+</style>
+
+<h1>LE DOLLAR — CE QUI SE PASSE VRAIMENT</h1>
+<div class="sous">LA FORMULE EST ÉCRITE POUR A2, PUIS SHEETS LA DÉCALE POUR CHAQUE CELLULE</div>
+
+<div class="duo">
+
+  <div class="panneau">
+    <div class="cap ok">AVEC LE $</div>
+    <div class="form">=<b>$</b>C2="Client"</div>
+    <div class="grille">
+      <div class="rang tete">
+        <div class="c num"></div>
+        <div class="c">A</div><div class="c">B</div>
+        <div class="c cible">C</div>
+        <div class="c">D</div><div class="c">E</div><div class="c">F</div>
+      </div>
+      <div class="rang">
+        <div class="c num">2</div>
+        <div class="c">$C2</div><div class="c">$C2</div>
+        <div class="c cible">$C2</div>
+        <div class="c">$C2</div><div class="c">$C2</div><div class="c">$C2</div>
+      </div>
+      <div class="rang">
+        <div class="c num">3</div>
+        <div class="c">$C3</div><div class="c">$C3</div>
+        <div class="c cible">$C3</div>
+        <div class="c">$C3</div><div class="c">$C3</div><div class="c">$C3</div>
+      </div>
+      <div class="rang">
+        <div class="c num">4</div>
+        <div class="c">$C4</div><div class="c">$C4</div>
+        <div class="c cible">$C4</div>
+        <div class="c">$C4</div><div class="c">$C4</div><div class="c">$C4</div>
+      </div>
+    </div>
+    <div class="note">
+      Toute la ligne pose <strong>la même question</strong>.<br>
+      Donc toute la ligne répond pareil — et se colore ensemble.
+    </div>
+  </div>
+
+  <div class="panneau">
+    <div class="cap ko">SANS LE $</div>
+    <div class="form">=C2="Client"</div>
+    <div class="grille">
+      <div class="rang tete">
+        <div class="c num"></div>
+        <div class="c">A</div><div class="c">B</div>
+        <div class="c">C</div>
+        <div class="c">D</div><div class="c">E</div><div class="c">F</div>
+      </div>
+      <div class="rang">
+        <div class="c num">2</div>
+        <div class="c cible">C2</div>
+        <div class="c neuf">D2</div><div class="c neuf">E2</div>
+        <div class="c neuf">F2</div><div class="c neuf">G2</div><div class="c neuf">H2</div>
+      </div>
+      <div class="rang">
+        <div class="c num">3</div>
+        <div class="c cible">C3</div>
+        <div class="c neuf">D3</div><div class="c neuf">E3</div>
+        <div class="c neuf">F3</div><div class="c neuf">G3</div><div class="c neuf">H3</div>
+      </div>
+      <div class="rang">
+        <div class="c num">4</div>
+        <div class="c num" style="flex:1;background:#fff;color:var(--encre)">…</div>
+        <div class="c neuf">…</div><div class="c neuf">…</div>
+        <div class="c neuf">…</div><div class="c neuf">…</div><div class="c neuf">…</div>
+      </div>
+    </div>
+    <div class="note">
+      Chaque case interroge <em>une colonne différente</em>.<br>
+      Seule la colonne A tombe juste — et par hasard.
+    </div>
+  </div>
+
+</div>
+
+<div class="bas">
+  <b>LE $ BLOQUE LE DÉCALAGE HORIZONTAL.</b>
+  Quelle que soit la case, elle regarde toujours la colonne du statut.
+  <b>LE 2 N'EN A PAS</b> — il doit descendre : ligne 3 regarde C3, ligne 4 regarde C4.
+</div>

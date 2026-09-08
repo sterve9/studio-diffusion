@@ -1,0 +1,53 @@
+<title>Miniature YouTube — tuto 01</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@700&display=swap');
+  :root{--papier:#f2efe7;--encre:#07120c;--vert:#25D366;--vertfonce:#128C4B;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    width:1280px;height:720px;background:var(--papier);color:var(--encre);
+    font-family:'Anton',sans-serif;overflow:hidden;position:relative;
+  }
+  .gauche{position:absolute;left:52px;top:58px;width:600px}
+  .kicker{font-family:'JetBrains Mono',monospace;font-size:23px;letter-spacing:5px;
+          color:var(--vertfonce);margin-bottom:14px}
+  .titre{font-size:104px;line-height:.9;letter-spacing:-1px}
+  .form{margin-top:30px;background:var(--encre);color:#fff;display:inline-block;
+        padding:14px 26px;font-family:'JetBrains Mono',monospace;font-size:44px}
+  .form span{color:var(--vert);font-size:60px;vertical-align:-4px}
+
+  /* Le tableau monte en haut a droite : tout le quart bas-droit reste libre
+     pour la photo detouree, qui viendra se poser devant. */
+  .grille{position:absolute;right:44px;top:52px;width:520px;
+          border:5px solid var(--encre);background:#fff;box-shadow:12px 12px 0 var(--encre)}
+  .r{display:flex;border-bottom:4px solid var(--encre);height:58px;align-items:center}
+  .r:last-child{border-bottom:none}
+  .r.tete{background:var(--encre);color:var(--papier);height:46px}
+  .c{padding:0 12px;font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700;
+     white-space:nowrap;overflow:hidden}
+  .c1{flex:1}
+  .c2{flex:0 0 152px;border-left:4px solid var(--encre);height:100%;
+      display:flex;align-items:center;justify-content:center}
+  .r.tete .c2{border-left-color:var(--papier)}
+  .jaune{background:#ffff00}.rouge{background:#ff0000}
+  .vert{background:#00ff00}.bleu{background:#0000ff}
+
+  .bandeau{position:absolute;left:0;bottom:0;width:640px;background:var(--vert);
+           color:var(--encre);font-family:'JetBrains Mono',monospace;font-weight:700;
+           font-size:24px;letter-spacing:4px;padding:13px 52px}
+</style>
+
+<div class="gauche">
+  <div class="kicker">GOOGLE SHEETS</div>
+  <div class="titre">COLORER<br>TOUTE<br>LA LIGNE</div>
+  <div class="form">=<span>$</span>C2="Client"</div>
+</div>
+
+<div class="grille">
+  <div class="r tete"><div class="c c1">NOM</div><div class="c c2">STATUT</div></div>
+  <div class="r jaune"><div class="c c1">Studio Pilates Move</div><div class="c c2">En discussion</div></div>
+  <div class="r rouge"><div class="c c1">Garage Central</div><div class="c c2">Perdu</div></div>
+  <div class="r vert"><div class="c c1">Fleurs &amp; Cie</div><div class="c c2">Client</div></div>
+  <div class="r bleu"><div class="c c1">Café des Arts</div><div class="c c2">Contacté</div></div>
+</div>
+
+<div class="bandeau">SANS CODE · EN 4 MINUTES</div>
