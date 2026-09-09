@@ -1,0 +1,163 @@
+﻿NOTES DE CONSTRUCTION - TUTO 02
+"Ton tableau te dit qui relancer aujourd'hui"
+Construit et verifie le 09/09/2026, avant tout tournage
+==================================================
+
+
+== POURQUOI CE FICHIER REMPLACE UN SCRIPT ===================
+
+Un script et un memo avaient ete ecrits le 08/09, AVANT la
+construction. Ils etaient faux sur trois points :
+
+  - le delai +7 fixe, ecarte le 09/09 (voir plus bas)
+  - le cadrage a quatre onglets manquait
+  - les formules n'avaient jamais ete testees
+
+Sur les SEPT pieges ci-dessous, DEUX seulement y figuraient.
+Les cinq autres n'existaient que dans la construction reelle.
+
+/!\ Les scripts s'ecriront apres le tournage, jamais avant.
+
+
+== LES SEPT PIEGES, TROUVES EN CONSTRUISANT =================
+
+--- 1. La feuille lisait MOIS/JOUR ---------------------------
+
+Locale par defaut : etats-unis. En tapant 30/08/2026, le mois 30
+n'existe pas -> Sheets garde du TEXTE. Et 01/09/2026 devient le
+9 janvier, en silence.
+
+  Trois dates sur quatre etaient fausses SANS que ca se voie.
+
+Correctif : Fichier > Parametres > Parametres regionaux > France.
+Consequence : le separateur des formules devient le POINT-VIRGULE.
+
+--- 2. L'ALIGNEMENT revele tout ------------------------------
+
+  Colle a DROITE  -> Sheets a compris une date
+  Colle a GAUCHE  -> c'est du texte, ca ne s'additionnera jamais
+
+Aucun reglage, aucun message. Le tableur le dit tout seul, et
+personne n'enseigne ce reflexe.
+
+/!\ A METTRE DANS LA VIDEO. C'est la panne n1 du tableur.
+
+--- 3. Les noms de fonctions se traduisent, les CODES non -----
+
+  AUJOURDHUI()  fonctionne
+  TODAY()       fonctionne AUSSI — les deux sont acceptes
+
+Mais les codes de format restent ANGLAIS :
+
+  =TEXTE(C3;"jj mmmm aaaa")  ->  "jj septembre mardi"
+  =TEXTE(C3;"dd mmmm yyyy")  ->  correct
+
+--- 4. Supprimer une colonne n'est pas effacer son contenu ----
+
+Un en-tete a disparu et tout s'est decale d'une case vers la
+gauche. Cause : "Supprimer la colonne" au lieu de la touche Suppr.
+
+  Suppr                          -> le contenu part, la case reste
+  Supprimer des cellules         -> la case part, TOUT ce qui est
+  et decaler vers la gauche         a droite se deplace
+
+/!\ Les formules ecrites AVANT un tel decalage pointent ensuite
+    vers autre chose. Ici on a eu de la chance : elles n'existaient
+    pas encore.
+
+--- 5. La saisie automatique peut coller du TEXTE -------------
+
+Sheets propose de remplir vers le bas. On ne sait pas s'il collera
+la FORMULE ou le RESULTAT. Si c'est le resultat, la colonne ne se
+met plus jamais a jour — et ca ne se voit pas.
+
+  Echap, puis la poignee de recopie. Elle ne suppose rien.
+
+Verification : cliquer une case du bas, la barre de formule doit
+montrer le =SI(...), pas du vide.
+
+--- 6. Le garde-fou, sans lequel une case vide donne 1900 -----
+
+  =SI(C2="";"";C2+7)
+      └─ sans ce garde, une case vide vaut 0, et 0+7 donne une
+         date de janvier 1900 sur toutes les lignes non remplies
+
+--- 7. ARRAYFORMULA perd le FORMAT ---------------------------
+
+  =ARRAYFORMULA(SI(C2:C="";"";C2:C+7))
+
+Fonctionne, mais affiche 46271, 46272, 46273...
+
+Ce ne sont pas des erreurs : c'est le NOMBRE DE JOURS depuis
+l'origine du tableur. Vider les cellules avait efface leur format.
+
+  Correctif : selectionner la colonne > Format > Nombre > Date
+
+/!\ CE PLAN DOIT ETRE DANS LA VIDEO. Personne ne comprend qu'une
+    date est un nombre tant qu'il ne l'a pas vu ecrit comme ca.
+
+
+== LE +7 FIXE EST ECARTE ====================================
+
+Decision du client, 09/09/2026, dans ses mots :
+
+  "Dans un CRM reel, si je relance et que c'est concluant il passe
+   a client. On doit apporter une valeur reelle dans un cas reel."
+
+Un delai constant est un jouet. Le rythme depend du STATUT :
+
+  A contacter      ->  pas encore appele, pas de relance
+  Contacte         ->  3 jours   (pas de reponse, on insiste)
+  En discussion    ->  7 jours   (il a repondu, on laisse respirer)
+  Client           ->  plus de prospection
+  Perdu            ->  on arrete
+
+/!\ ET LA REGLE VIT DANS UN TABLEAU, PAS DANS LA FORMULE.
+
+Changer un delai = changer un chiffre dans une case. Jamais
+rouvrir une formule. C'est ce qui separe bricoler un tableur de
+concevoir un systeme.
+
+LE PLAN QUI VEND LA VIDEO :
+  changer UN menu deroulant -> le delai change -> la date se
+  decale -> la ligne s'eteint. Un geste, trois colonnes.
+
+
+== L'ETAT VERIFIE AU 09/09 ==================================
+
+Feuille "Relance", locale France, colonnes A a E :
+
+  A  Nom
+  B  Contact
+  C  Dernier contact      (saisi a la main, format Date)
+  D  Prochaine relance    =ARRAYFORMULA(SI(C2:C="";"";C2:C+7))
+  E  A relancer           =ARRAYFORMULA(SI(D2:D="";"";
+                            SI(D2:D<=AUJOURDHUI();"A RELANCER";"")))
+
+Mise en forme conditionnelle sur A2:E200 :
+  =$E2="A RELANCER"  -> fond orange, texte noir gras
+
+/!\ L'orange choisi est PALE. A la taille d'un telephone il
+    risque de s'effacer. Le tuto 01 utilisait des couleurs
+    franches — a rendre coherent avant de filmer.
+
+RESTE A CONSTRUIRE : le delai qui depend du statut, et le petit
+tableau de regles qui le porte.
+
+
+== CE QUI EST DEJA VALIDE POUR LE CADRAGE ===================
+
+La video s'ouvre sur le systeme a QUATRE ONGLETS, pas sur un
+tableau abstrait :
+
+  1. A trier      les prospects arrivent SEULS du systeme
+                  statuts : a trier / rejete / valide
+  2. CRM Client   le prospect valide arrive ici avec ses infos.
+                  LE VRAI TRAVAIL COMMENCE.
+                  statuts : a contacter / contacte / en discussion
+                            / client / perdu
+  3. Relance      qui rappeler, et quand   <- LE TUTO 02
+  4. Dashboard    les chiffres et les graphiques
+
+L'IA propose et trie. Le client decide et suit.
+Le passage de l'onglet 1 au 2 est la frontiere entre les deux.

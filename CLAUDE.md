@@ -1,21 +1,31 @@
 # Studio Diffusion — Contexte projet
 
-## ⚠️ Ce projet est au tout début. Il n'a pas encore de solution.
+## ⚠️ Étapes 1 à 12 écrites. Le code a commencé.
 
 `studio-diffusion` est un **titre de travail**, choisi pour nommer un dossier —
 pas une décision de conception. Ce qui sera construit n'est pas décidé, et ne
 doit pas l'être avant d'avoir traversé les étapes de la méthode.
 
-**Il n'y a pas de code dans ce dépôt, et il ne doit pas y en avoir avant
-l'étape 11.**
+**L'étape 11 est franchie : il y a désormais du code, et c'est légitime.**
+
+`app/teleprompteur.html` — le jalon `J1`, publié sur GitHub Pages, **testé
+90 secondes sur iPhone le 09/09/2026**. Trois vues : éditeur, voix off, et
+face caméra avec le texte superposé à l'image.
+
+⚠️ **Ce que cette page a d'unique** : elle distingue **ce qui se dit** de **ce
+qui se vérifie** — `#` un titre, `!` un piège, `>` un point de contrôle.
+Aucune application payante ne sait le faire, parce qu'aucune ne connaît
+`CT-04`.
 
 **Où en est la méthode** — étape 1 (Besoin Client) **terminée** le 01/09/2026,
-livrable attaché et publié. **Les étapes 2 à 8 ont été écrites le
-08/09/2026** : la phase COMPRENDRE (01→05) et la phase CONCEVOIR (06→08) sont
-closes, décision d'architecture comprise. La phase CHOISIR (09→10) suit.
+livrable attaché et publié. **Les étapes 2 à 12 ont été écrites les 08 et
+09/09/2026.** Les quatre phases sont couvertes — COMPRENDRE, CONCEVOIR,
+CHOISIR, CONSTRUIRE. **Seule `13.Documentation.md` manque**, et c'est la
+première tâche de la prochaine session.
 
 ⚠️ **Écrire un fichier et terminer l'étape dans le système sont deux gestes
-distincts.** Le second est définitif (`F-02`) et enregistre l'heure du clic. Le point de reprise à jour est
+distincts.** Le second est définitif (`F-02`) et enregistre l'heure du clic.
+Plusieurs étapes ont leur fichier en ligne sans être cochées. Le point de reprise à jour est
 `docs/REPRISE.md` — **à lire en premier**, avant ce fichier-ci.
 
 ---
@@ -264,6 +274,54 @@ compris comme le lendemain alors qu'il était une heure du matin.
 
 ---
 
+## 🎯 La règle qui commande toute proposition
+
+> **Rien de générique. Jamais.**
+
+Posé par le client le 09/09/2026, dans ses mots : *« les gens sont pointés
+vers l'action, surtout avec les outils IA qui sortent de jour en jour et qui
+impressionnent. Notre rôle est de créer des systèmes pilotés par l'IA qui
+résolvent de vrais problèmes du quotidien. »*
+
+**Le marqueur qui permet de vérifier :**
+
+> **La règle vit dans un tableau, pas dans la formule.**
+
+Changer un délai doit être changer **un chiffre dans une case**, jamais
+rouvrir une formule. C'est ce qui sépare bricoler un tableur de concevoir un
+système — et c'est exactement ce qu'il vend.
+
+⚠️ **Le piège inverse** : viser l'entrée de gamme **de sa niche**, pas le
+grand public. *« Colorer ton CRM selon le statut de tes prospects »* parle à
+une SMM ; *« faire un tableau croisé dynamique »* attire une audience qu'il ne
+veut pas — et l'algorithme apprend le mauvais public.
+
+---
+
+## 💡 La vision produit — ouverte le 09/09/2026
+
+Le système de prospection pourrait devenir **un produit digital** pour PME et
+entrepreneurs.
+
+⚠️ **Ce sera un projet neuf, avec ses treize étapes.** Le client change —
+d'Ingrid à *« un entrepreneur qui prospecte des commerces locaux »*. Client
+différent, besoin différent, projet différent. **Ne pas le greffer sur
+`crm-prospection-ingrid`.**
+
+**Deux réserves posées le même jour :**
+
+1. ❌ **Ne pas généraliser la source.** La source de collecte *est* le produit.
+   Généraliser l'**acheteur** — tous ceux qui prospectent des commerces
+   locaux — pas la source.
+2. ⚠️ **Le coût par exécution n'est pas mesuré.** C'est ce nombre qui décide
+   si on vend un fichier ou un abonnement.
+
+**Ce qui est défendable** : ni le scraping, ni le tableur. **Les règles** — la
+priorité par le ratio avis/abonnés, la double preuve d'appartenance, le rythme
+de relance par statut. Elles viennent toutes d'un échec corrigé en production.
+
+---
+
 ## Contrat de collaboration (à respecter à chaque réponse)
 
 - Expliquer chaque nouveau concept avant le code ; avancer par micro-étapes
@@ -279,3 +337,10 @@ compris comme le lendemain alors qu'il était une heure du matin.
 - Donner une recommandation justifiée (A/B/C + reco) à chaque choix structurant.
 - Commits atomiques ; ne pas découper les enchaînements Git standards.
 - Refuser toute tâche sans valeur métier claire.
+- **Ne jamais écrire un fichier sans avoir montré son contenu** et obtenu le
+  feu vert. ⚠️ Accepter que j'écrive n'est pas accepter ce que j'écris —
+  précisé le 09/09 après deux fichiers produits sur un cadrage faux.
+- **Ne jamais écrire un script de tournage avant que la construction soit
+  vérifiée à l'écran.** Le 08/09 en a produit deux, faux sur trois points ;
+  la construction du 09/09 a révélé **sept pièges, dont cinq n'étaient dans
+  aucun brouillon**.
