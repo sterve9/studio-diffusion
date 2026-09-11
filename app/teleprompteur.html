@@ -47,6 +47,13 @@
     flex:1;border:none;border-radius:10px;padding:18px 8px;
     font-size:16px;font-weight:800;letter-spacing:.3px;
   }
+  .outils{display:flex;gap:10px;margin-bottom:2px}
+  .outils button{
+    flex:1;border:none;border-radius:9px;padding:12px 8px;
+    background:#1e2621;color:var(--gris);
+    font-size:14px;font-weight:700;letter-spacing:.3px;
+  }
+  #vider[data-sur="1"]{background:var(--ambre);color:#1a1200}
   #goVoix{background:#1e2621;color:var(--texte)}
   #goCam{background:var(--vert);color:#04150c}
   #alerte{
@@ -154,6 +161,10 @@
     <code>#</code> ouvre une section — <b>et une section = une prise</b>.<br>
     <code>!</code> un piège · <code>&gt;</code> un point de contrôle — <b>ne se lisent pas</b>.
   </p>
+  <div class="outils">
+    <button id="coller" type="button">Coller</button>
+    <button id="vider" type="button">Vider</button>
+  </div>
   <textarea id="script" spellcheck="false" placeholder="Colle ton script ici…"></textarea>
   <div id="alerte"></div>
   <div class="duo">
@@ -322,6 +333,44 @@
     try { localStorage.setItem('teleprompteur-script', $('script').value); } catch(e){}
   }
 
+  /* ── Coller / Vider ────────────────────────────────────────────
+     Sur iPhone, « Tout sélectionner » dans un textarea demande un
+     appui long puis un menu. Remplacer un script au doigt coûtait
+     plus de temps que de le relire. Ces deux boutons sont la
+     réponse à un usage réel, pas une commodité.                  */
+
+  function selectionTout(){
+    var ta = $('script');
+    ta.focus(); ta.select();
+    montrerAlerte('Tout est sélectionné — colle par-dessus, ça remplace tout.', 6000);
+  }
+
+  $('coller').onclick = function(){
+    if (navigator.clipboard && navigator.clipboard.readText) {
+      navigator.clipboard.readText().then(function(t){
+        if (!t || !t.trim()) { selectionTout(); return; }
+        $('script').value = t; sauver();
+        montrerAlerte('Script remplacé — ' + decouper(t).length + ' section(s).', 4000);
+      }, selectionTout);
+    } else { selectionTout(); }
+  };
+
+  var surVider = 0, minuteurVider = null;
+  $('vider').onclick = function(){
+    var b = $('vider');
+    if (!surVider) {
+      surVider = 1; b.textContent = 'Confirmer ?'; b.setAttribute('data-sur','1');
+      minuteurVider = setTimeout(function(){
+        surVider = 0; b.textContent = 'Vider'; b.removeAttribute('data-sur');
+      }, 3000);
+      return;
+    }
+    clearTimeout(minuteurVider);
+    surVider = 0; b.textContent = 'Vider'; b.removeAttribute('data-sur');
+    $('script').value = ''; sauver(); $('script').focus();
+    montrerAlerte('Éditeur vidé.', 3000);
+  };
+
   $('goVoix').onclick = function(){
     var t = $('script').value; if (!t.trim()) return;
     sauver();
@@ -383,8 +432,9 @@
     });
   };
 
-  function montrerAlerte(m){
+  function montrerAlerte(m, ms){
     $('alerte').textContent = m; $('alerte').style.display = 'block';
+    if (ms) setTimeout(function(){ $('alerte').style.display = 'none'; }, ms);
   }
 
   /* ── Base locale : les morceaux sont vidés hors mémoire ────────
