@@ -19,6 +19,7 @@
   :root{
     --fond:#0b0f0d; --texte:#f4f6f5; --vert:#25D366; --ambre:#ffc23d;
     --gris:#8a9a91; --panneau:#141a17; --taille:5.2vh;
+    --zoom-cam:1;          /* aperçu caméra — réglable à l'écran, ligne CADRE */
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html,body{height:100%;overflow:hidden}
@@ -81,13 +82,23 @@
   .note.controle{color:var(--vert);border-left-color:var(--vert)}
 
   /* ── 3 · TOURNAGE ────────────────────────────────────────────── */
+  /* ⚠️ Ce bloc ne règle QUE l'aperçu. `MediaRecorder` enregistre la piste
+     brute (`flux`), pas le <video> rendu : le fichier garde le cadre
+     complet quoi qu'on fasse ici. Un aperçu qui rogne ment, et on se
+     rapproche pour compenser — c'est ça qu'on corrige, le 20/09/2026. */
   #cam{
-    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-    transform:scaleX(-1);            /* miroir à l'ÉCRAN seulement.
-                                        Le fichier enregistré, lui, n'est
-                                        pas inversé. */
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:contain;              /* flux COMPLET — aucun rognage */
+    object-position:center bottom;   /* la bande noire part en HAUT,
+                                        sous le calque de texte */
+    transform:scaleX(-1) scale(var(--zoom-cam));
+                                     /* scaleX(-1) = miroir à l'ÉCRAN
+                                        seulement. Le fichier enregistré,
+                                        lui, n'est pas inversé. */
+    transform-origin:center bottom;  /* le buste reste collé au bas */
     background:#000;
   }
+  #cam.remplir{object-fit:cover}     /* mode REMPLI — rogne les côtés */
   /* Le texte se pose dans le tiers HAUT : c'est là qu'est l'objectif
      frontal d'un téléphone. Le regard ne le quitte jamais. */
   #calque{
@@ -132,6 +143,24 @@
   }
   #rec.stop{background:#fff !important;color:#111 !important}
   #vitC{flex:0 0 46px;text-align:center;font-size:13px;color:var(--gris)}
+
+  /* ── Ligne CADRE — se règle AU TOURNAGE, sur le téléphone ──────
+     Posée après `#barreC button` : même spécificité, c'est l'ordre
+     qui tranche. Plus haut, le `flex:1` de la barre écraserait ces
+     boutons. */
+  #ligneCadre{display:flex;align-items:center;gap:7px;font-size:12px}
+  #ligneCadre button{
+    flex:0 0 auto;background:#1e2621e0;color:var(--texte);border:none;
+    border-radius:8px;padding:8px 12px;font-size:12px;font-weight:700;
+  }
+  #modeCadre.remplir{background:var(--ambre);color:#1a1200}
+  #zoomVal{flex:0 0 52px;text-align:center;color:var(--gris);font-weight:700}
+  /* La mesure, pas l'impression : ce que la caméra délivre vraiment. */
+  #mesureCam{
+    flex:1;text-align:right;color:var(--gris);font-size:11px;
+    font-family:ui-monospace,Menlo,monospace;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
 
   /* revue de la prise */
   #revue{
@@ -200,6 +229,13 @@
   </div>
 
   <div id="barreC">
+    <div id="ligneCadre">
+      <button id="modeCadre" type="button">PLEIN</button>
+      <button id="moinsZ" type="button">−</button>
+      <span id="zoomVal">100 %</span>
+      <button id="plusZ" type="button">+</button>
+      <span id="mesureCam">—</span>
+    </div>
     <div id="ligneSect">
       <button id="sectPrec" style="flex:0 0 54px">‹</button>
       <span id="sectNom">—</span>
@@ -401,6 +437,34 @@
   $('plusVC').onclick  = function(){ $('vitC').textContent = dCam.vitesse(+0.2).toFixed(1); };
   $('moinsVC').onclick = function(){ $('vitC').textContent = dCam.vitesse(-0.2).toFixed(1); };
 
+  /* ── La mesure, jamais la déduction ────────────────────────────
+     Un `ideal` est un souhait, pas un contrat : ce que la caméra délivre
+     n'est pas ce qu'on lui a demandé. On lit donc ce qui est réellement
+     arrivé, et on l'affiche sur l'écran de tournage. */
+  function mesurerCam(f){
+    var p = f.getVideoTracks()[0];
+    var s = (p && p.getSettings) ? p.getSettings() : null;
+    if (!s || !s.width || !s.height){ $('mesureCam').textContent = 'mesure indisponible'; return; }
+    $('mesureCam').textContent = s.width + '×' + s.height + '  ' + (s.width / s.height).toFixed(2) + ':1';
+  }
+
+  /* ── Cadrage de l'aperçu ───────────────────────────────────────
+     ⚠️ PLEIN/REMPLI et le zoom ne touchent QUE l'écran. Le fichier
+     enregistré garde le cadre complet de la caméra dans les deux cas. */
+  var zoomCam = 1;
+  function poserZoom(d){
+    zoomCam = Math.min(2, Math.max(0.5, Math.round((zoomCam + d) * 100) / 100));
+    document.documentElement.style.setProperty('--zoom-cam', zoomCam);
+    $('zoomVal').textContent = Math.round(zoomCam * 100) + ' %';
+  }
+  $('plusZ').onclick  = function(){ poserZoom(+0.05); };
+  $('moinsZ').onclick = function(){ poserZoom(-0.05); };
+  $('modeCadre').onclick = function(){
+    var r = $('cam').classList.toggle('remplir');
+    this.classList.toggle('remplir', r);
+    this.textContent = r ? 'REMPLI' : 'PLEIN';
+  };
+
   function arreterCam(){
     dCam.jouer(false);
     if (enregistreur && enregistreur.state !== 'inactive') enregistreur.stop();
@@ -421,11 +485,18 @@
       return;
     }
 
+    /* ⚠️ Aucune contrainte de ratio ici, et c'est délibéré.
+       `aspectRatio: 9/16` n'est pas une demande de définition : c'est une
+       demande de ROGNAGE. Le capteur frontal est natif en paysage ; lui
+       imposer un portrait lui fait couper les côtés — donc perdre du
+       champ, exactement le cadre tête-seule qu'on corrige. On demande la
+       définition, on laisse le capteur garder son champ. */
     navigator.mediaDevices.getUserMedia({
-      video: { facingMode: 'user', width:{ideal:1080}, height:{ideal:1920} },
+      video: { facingMode: 'user', width:{ideal:1920}, height:{ideal:1080} },
       audio: true
     }).then(function(f){
       flux = f; $('cam').srcObject = f;
+      mesurerCam(f);
       afficherSection(); voir('tournage'); verifierRecup();
     }).catch(function(err){
       montrerAlerte("Accès refusé ou impossible : " + err.name + ". Sur iPhone, autorise la caméra et le micro dans Réglages → Safari.");
